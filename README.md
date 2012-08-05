@@ -1,1 +1,1 @@
-"BoilerStrap" - A Boilerplate Website
+"Biindle" - More eyes to see the world
