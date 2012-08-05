@@ -1,0 +1,63 @@
+/*
+ * RawDesigns.net
+ *
+ * ==|== Rob Abby Web Designs ===============================================
+ *
+ * ==========================================================================
+   General Styles
+   ========================================================================== 
+
+  ==|== Fonts ==|==
+
+  Trade Gothic:
+  font-family: 'TradeGothicLTStdBdCnNo.20';
+  font-family: 'TradeGothicLTStdLight';
+  
+  Delicious:
+  font-family: 'DeliciousBold';
+  font-family: 'DeliciousRoman';
+  font-family: 'DeliciousSmallCapsRegular';
+
+  Big Noodle:
+  font-family: 'BigNoodleTitlingRegular';
+  font-family: 'BigNoodleTitlingOblique';
+  
+  Swiss:
+  font-family: 'Swiss721Light';
+  font-family: 'Swiss721Medium';
+  font-family: 'Swiss721Bold';
+  
+  Code:
+  font-family: 'CodeBoldRegular';
+  font-family: 'CodeLightRegular';
+  
+  Quicksand:
+  font-family: 'QuicksandBook';
+  font-family: 'QuicksandLight';
+  
+  Sansation:
+  font-family: 'SansationBold';
+  font-family: 'SansationRegular';
+  font-family: 'SansationLight';
+
+  Pictograms:
+  font-family: 'ModernPictogramsNormal';
+
+
+/* ==|== Misc Styles 
+================================================================================================================= */
+
+* {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html { 
+  background: url('/img/bg.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/img/bg.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";
+}
