@@ -15,7 +15,19 @@
 ### github.com/h5bp/server-configs
 ###
 
+# ----------------------------------------------------------------------
+# Password Protection for FTP
+# ----------------------------------------------------------------------
 
+AuthName "Restricted Area" 
+AuthUserFile /home/content/89/7625389/html/biindle/.htpasswd 
+AuthGroupFile /dev/null 
+AuthName EnterPassword
+AuthType Basic
+Allow from 127.0.0.1
+Satisfy Any
+
+require user biindle
 
 # ----------------------------------------------------------------------
 # Better website experience for IE users

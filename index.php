@@ -11,30 +11,37 @@
 <head>
   <?php include("$path2root/assets/inc/head.inc.php"); ?>
 </head>
-<body id="blank">
-<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
-     chromium.org/developers/how-tos/chrome-frame-getting-started -->
-<!--[if lt IE 9]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
-
-<!-- ## CONTACT MODAL ## -->
-<?php include("$path2root/assets/inc/contactModal.inc.php"); ?>
-<!-- ## CONTACT MODAL ## -->
-
-<!-- ## HEADER & NAV ## --
+<body id="home">
 <?php include("$path2root/assets/inc/nav.inc.php"); ?>
-<!-- ## HEADER & NAV ## -->
-
-<!-- #### MAIN CONTENT GOES HERE #### -->
 
 <div class="container">
+  <div class="hero-unit">
+    <h1>More eyes to see the world</h1>
+    <br />
+    <a class="btn btn-large btn-inverse" href="sign_up.php" title="#">Sign Up Now</a>
+  </div>
+  <pre>
+    <?php
+      if ($detect->isMobile() && !$detect->isTablet()) {
+          echo "You are viewing this site with a Smartphone!";
+      } 
+      if ($detect->isTablet() && $detect->isMobile()) {
+          echo "You are viewing this site with a Tablet!";
+      } 
+      if($detect->isiOS()){
+          echo "And you are running iOS";
+      }
+      if($detect->isAndroidOS()){
+          echo "And you are running Android";
+      }
+      if (!$detect->isMobile() && !$detect->isTablet()) {
+          echo "You are viewing this site with a Computer!";
+      }
+    ?>
+  </pre>
 </div><!-- .container -->
 
-<!-- #### MAIN CONTENT GOES HERE #### -->
-
-<!-- ## FOOTER ## -->
 <?php include("$path2root/assets/inc/footer.inc.php"); ?>
-<!-- ## FOOTER ## -->
-
 </body>
 </html>
 <?php

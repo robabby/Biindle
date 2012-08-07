@@ -3,15 +3,12 @@ class Ps2_Upload {
 	
   protected $_uploaded = array();
   protected $_destination;
-  protected $_max = 5120000; //Approx 5MB Limit
+  protected $_max = 51200;
   protected $_messages = array();
   protected $_permitted = array('image/gif',
 								'image/jpeg',
 								'image/pjpeg',
-								'image/png',
-								'application/pdf',
-								'text/plain',
-								'text/rtf');
+								'image/png');
   protected $_renamed = false;
   protected $_filenames = array();
 

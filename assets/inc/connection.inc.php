@@ -1,14 +1,13 @@
 <?php
 function dbConnect($usertype, $connectionType = 'mysqli') {
-  //$host = 'rawdesigns.db.7625389.hostedresource.com';
   $host = 'localhost';  
-  $db = 'rawdesigns';
+  $db = 'biindle';
   if ($usertype  == 'read') {
-	$user = 'rawdesigns';
-	$pwd = 'Forever#23';
+	$user = 'root';
+	$pwd = '';
   } elseif ($usertype == 'write') {
-  	$user = 'rawdesigns';
-	$pwd = 'Forever#23';
+  	$user = 'root';
+	$pwd = '';
   } else {
 	exit('Unrecognized connection type');
   }
