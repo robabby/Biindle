@@ -23,49 +23,58 @@
 <?php include("$path2root/assets/inc/nav.inc.php"); ?>
 <div class="container">
   <div class="hero-unit">
-    <h1>Fill in the fields:</h1>
-    <br />
-    <?php
-    if (isset($success)) {
-      echo "<p>$success</p>";
-    } elseif (isset($errors) && !empty($errors)) {
-      echo '<ul>';
-      foreach ($errors as $error) {
-      echo "<li>$error</li>";
-      }
-      echo '</ul>';
-    }
-    ?>
-    <form id="form1" method="post" action="">
-      <p>
-        <label for="username">Username:</label>
-        <input name="username" type="text" id="username">
-      </p>
-      <p>
-        <label for="pwd">Password:</label>
-        <input name="pwd" type="password" id="pwd">
-      </p>
-      <p>
-        <label for="conf_pwd">Retype-Password:</label>
-        <input name="conf_pwd" type="password" id="conf_pwd">
-      </p>
-      <p>
-        <label for="first_name">First Name:</label>
-        <input name="first_name" type="text" id="first_name">
-      </p>
-      <p>
-        <label for="last_name">Last Name:</label>
-        <input name="last_name" type="text" id="last_name">
-      </p>
-      <p>
-        <label for="email">Email:</label>
-        <input name="email" type="text" id="email">
-      </p>
-      <p>
-        <button class="btn btn-large btn-primary" type="submit" name="register" id="register">&nbsp;&nbsp;Sign Up&nbsp;&nbsp;</button>
-      </p>
-    </form>
-  </div>
+    <div class="row">
+      <div class="span5">
+        <h1>Fill in the fields:</h1>
+        <br />
+        <?php
+        if (isset($success)) {
+          echo "<p>$success</p>";
+        } elseif (isset($errors) && !empty($errors)) {
+          echo '<ul>';
+          foreach ($errors as $error) {
+          echo "<li>$error</li>";
+          }
+          echo '</ul>';
+        }
+        ?>
+        <form id="form1" method="post" action="">
+          <p>
+            <label for="username">Username:</label>
+            <input name="username" type="text" id="username">
+          </p>
+          <p>
+            <label for="pwd">Password:</label>
+            <input name="pwd" type="password" id="pwd">
+          </p>
+          <p>
+            <label for="conf_pwd">Retype-Password:</label>
+            <input name="conf_pwd" type="password" id="conf_pwd">
+          </p>
+          <p>
+            <label for="first_name">First Name:</label>
+            <input name="first_name" type="text" id="first_name">
+          </p>
+          <p>
+            <label for="last_name">Last Name:</label>
+            <input name="last_name" type="text" id="last_name">
+          </p>
+          <p>
+            <label for="email">Email:</label>
+            <input name="email" type="text" id="email">
+          </p>
+          <p>
+            <button class="btn btn-large btn-primary" type="submit" name="register" id="register">&nbsp;&nbsp;Sign Up&nbsp;&nbsp;</button>
+          </p>
+        </form>
+      </div><!-- .span -->
+      <div class="span5">
+        <h3>Already have an account?</h3>
+        <br />
+        <a class="btn btn-large btn-info" href="log_in.php">Log In</a>
+      </div><!-- .span -->
+    </div><!-- .row -->
+  </div><!-- .hero-unit -->
 </div><!-- .container -->
 <?php include("$path2root/assets/inc/footer.inc.php"); ?>
 </body>

@@ -3,7 +3,14 @@
   require_once("$path2root/assets/inc/session_timeout.inc.php");
   try {
   include("$path2root/assets/inc/title.inc.php"); 
-  include("$path2root/assets/inc/user_agent.php");
+  require_once("$path2root/assets/inc/connection.inc.php");
+
+  $username = $_SESSION['username'];
+
+  // create database connection
+  $conn = dbConnect('write');
+  $sql = "SELECT * FROM users WHERE username = '".$username."'";
+  $result = $conn->query($sql) or die(mysqli_error($conn));
 ?>
 <!doctype html>
 <html>
@@ -25,9 +32,11 @@
     </div>
     <div class="span9">
       <div class="hero-unit">
-        <h1>Restricted area</h1>
-        <?php echo ""; ?>
-        <p><a href="menu_db.php">Another Restricted Page</a></p>
+        <?php while($row = $result->fetch_assoc()) { ?>
+        <h1><?php echo "Hey there, " . $_SESSION['username'] . "!";?></h1>
+        <p>Welcome to your Biindle</p>
+        <p><?php echo $row['first_name'] . " " . $row['last_name']; ?></p>
+        <?php } // End of while loop ?>
         <?php include("$path2root/assets/inc/logout.inc.php"); ?>
       </div>
     </div>

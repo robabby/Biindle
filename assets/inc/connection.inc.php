@@ -1,5 +1,6 @@
 <?php
 function dbConnect($usertype, $connectionType = 'mysqli') {
+  // $host = 'biindleadmin.db.7625389.hostedresource.com';
   $host = 'localhost';  
   $db = 'biindle';
   if ($usertype  == 'read') {

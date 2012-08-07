@@ -4,6 +4,7 @@
     session_start();
     $username = trim($_POST['username']);
     $password = trim($_POST['pwd']);
+    $_SESSION['username'] = $username;
     // location to redirect on success
     $redirect = '/user/index.php';
     require_once("$path2root/assets/inc/authenticate.inc.php");
@@ -11,7 +12,6 @@
   ob_start();
   try {
   include("$path2root/assets/inc/title.inc.php"); 
-  require_once("$path2root/assets/inc/connection.inc.php");
 ?>
 <!doctype html>
 <html>
@@ -49,7 +49,7 @@
       </div><!-- .span -->
       <div class="span4">
         <h3>Dont have an account yet?</h3>
-        <p>What are you waiting for?</p>
+        <br />
         <a class="btn btn-large btn-info" href="/sign_up.php" title="Sign Up for Biindle.com">Sign up!</a>
       </div><!-- .span -->
     </div><!-- .row -->
