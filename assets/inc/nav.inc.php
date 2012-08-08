@@ -9,14 +9,13 @@
       <span class="icon-bar"></span>
     </a>
     <a class="brand" href="/">
-      <img src="/img/logo.png" alt="" width="100" />
+      <img src="/img/logo.png" alt="" width="53" />
     </a>
     <div class="container">
       <div class="nav-collapse">
         <ul class="nav pull-right">
-          <!--
-          <li <?php if ($currentPage == 'index.php') {
-            echo 'class="active"';} ?>><a class="first" href="<?php echo $path2root ?>/index.php">Home</a></li>-->
+          <li <?php if ($currentPage == 'about.php') {
+            echo 'class="active"';} ?>><a href="<?php echo $path2root ?>/about.php">About</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               Account
