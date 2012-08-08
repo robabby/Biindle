@@ -29,12 +29,12 @@
     <div class="span9">
       <div class="hero-unit">
         <?php while($row = $result->fetch_assoc()) { ?>
-        <h1><?php echo "Hey there, " . $row['first_name'] . " " . $row['last_name'] . "!";?></h1>
+        <h1><?php echo "Hey there, " . $_SESSION['username'] . "!";?></h1>
         <br />
-        <h2>Welcome to your Biindle</h2>
-        <br />
-        <?php include("$path2root/assets/inc/logout.inc.php"); ?>
+        <p>Welcome to your Biindle</p>
+        <p><?php echo $row['first_name'] . " " . $row['last_name']; ?></p>
         <?php } // End of while loop ?>
+        <?php include("$path2root/assets/inc/logout.inc.php"); ?>
       </div>
     </div>
   </div><!-- row -->
