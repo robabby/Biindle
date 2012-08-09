@@ -32,6 +32,7 @@
         <h1><?php echo "Hey there, " . $row['first_name'] . " " . $row['last_name'] . "!";?></h1>
         <br />
         <h2>Welcome to your Biindle</h2>
+        <p><span class="label label-info">Member since: <?php echo $row['created']; ?></span>
         <br />
         <?php include("$path2root/assets/inc/logout.inc.php"); ?>
         <?php } // End of while loop ?>
