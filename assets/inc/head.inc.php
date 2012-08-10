@@ -1,4 +1,4 @@
-  <?php error_reporting(0); ?>
+  <?php //error_reporting(0); ?>
   <meta charset="utf-8">
 
   <!-- Use the .htaccess and remove these lines to avoid edge case issues.
