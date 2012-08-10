@@ -29,14 +29,12 @@
     <div class="span9">
       <div class="hero-unit">
         <?php while($row = $result->fetch_assoc()) { ?>
-        <a class="btn btn-large btn-primary pull-right" href="#" title="#">Ask a Question</a>
-        <h1><?php echo "Hey there, " . $row['first_name'] . " " . $row['last_name'] . "!";?></h1>
-        <h2>Welcome to your Biindle</h2>
-        <p><span class="label label-info">Member since: <?php echo $row['created']; ?></span></p>
-        <p>You are user <span class="badge badge-inverse">#<?php echo $row['user_id']; ?></span>
+        <h1><?php echo "Hey there, " . $_SESSION['username'] . "!";?></h1>
         <br />
-        <?php include("$path2root/assets/inc/logout.inc.php"); ?>
+        <p>Welcome to your Biindle</p>
+        <p><?php echo $row['first_name'] . " " . $row['last_name']; ?></p>
         <?php } // End of while loop ?>
+        <?php include("$path2root/assets/inc/logout.inc.php"); ?>
       </div>
     </div>
   </div><!-- row -->
