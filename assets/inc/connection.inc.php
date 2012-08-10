@@ -1,4 +1,5 @@
 <?php
+/*
 function dbConnect($usertype, $connectionType = 'mysqli') {
   $host = 'biindleadmin.db.7625389.hostedresource.com';
   $db = 'biindleadmin';
@@ -24,7 +25,7 @@ function dbConnect($usertype, $connectionType = 'mysqli') {
     }
   }
 }
-/*
+*/
 function dbConnect($usertype, $connectionType = 'mysqli') {
   $host = 'localhost';  
   $db = 'biindle';
@@ -50,4 +51,3 @@ function dbConnect($usertype, $connectionType = 'mysqli') {
     }
   }
 }
-*/
