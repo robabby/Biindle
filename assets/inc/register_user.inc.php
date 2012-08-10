@@ -1,5 +1,5 @@
 <?php
-require_once('/assets/classes/CheckPassword.php');
+require_once("$path2root/assets/classes/CheckPassword.php");
 $usernameMinChars = 6;
 $errors = array();
 if (strlen($username) < $usernameMinChars) {
