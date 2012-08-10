@@ -1,6 +1,5 @@
 <?php 
   $path2root = ".";
-  require_once("$path2root/assets/inc/session_timeout.inc.php");
   if (isset($_POST['login'])) {
     session_start();
     $username = trim($_POST['username']);
