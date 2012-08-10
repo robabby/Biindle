@@ -17,7 +17,7 @@
 <head>
   <?php include("$path2root/assets/inc/head.inc.php"); ?>
 </head>
-<body id="blank">
+<body id="user">
 <?php include("$path2root/assets/inc/nav.inc.php"); ?>
 <div class="container">
   <div class="row">
