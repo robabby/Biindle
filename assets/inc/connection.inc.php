@@ -1,7 +1,7 @@
 <?php
 function dbConnect($usertype, $connectionType = 'mysqli') {
   $host = 'biindleadmin.db.7625389.hostedresource.com';
-  $db = 'biindle';
+  $db = 'biindleadmin';
   if ($usertype  == 'read') {
 	$user = 'biindleread';
 	$pwd = 'Password#23';
