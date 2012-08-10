@@ -17,7 +17,8 @@
   <div class="hero-unit">
     <h1>More eyes to see the world</h1>
     <br />
-    <a class="btn btn-large btn-inverse" href="sign_up.php" title="#">Sign Up Now</a>
+    <br />
+    <a class="btn btn-large btn-primary" href="sign_up.php" title="#">Sign Up Now</a>
   </div>
   <pre>
     <?php
