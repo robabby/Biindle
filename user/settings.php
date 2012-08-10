@@ -3,14 +3,22 @@
   require_once("$path2root/assets/inc/session_timeout.inc.php");
   try {
   include("$path2root/assets/inc/title.inc.php"); 
-  require_once("$path2root/assets/inc/connection.inc.php");
 
   $username = $_SESSION['username'];
 
-  // create database connection
-  $conn = dbConnect('write');
-  $sql = "SELECT * FROM users WHERE username = '".$username."'";
-  $result = $conn->query($sql) or die(mysqli_error($conn));
+  if (isset($_POST['update'])) {
+    $email = trim($_POST['email']);
+    $website = trim($_POST['website']);
+    $about = trim($_POST['about']);
+    $user = trim($_POST['user']);
+    require_once("$path2root/assets/inc/update_user.inc.php");
+  }
+  if (isset($_POST['update_pass'])) {
+    $password = trim($_POST['pwd']);
+    $retyped = trim($_POST['conf_pwd']);
+    require_once("$path2root/assets/inc/update_password.inc.php");
+  }
+
 ?>
 <!doctype html>
 <html>
@@ -28,13 +36,61 @@
     </div>
     <div class="span9">
       <div class="hero-unit">
-        <?php while($row = $result->fetch_assoc()) { ?>
-        <h1><?php echo "Hey there, " . $_SESSION['username'] . "!";?></h1>
+    <div class="row">
+      <h1>Fill in the fields:</h1>
+      <br />
+      <?php
+      if (isset($success)) {
+        echo "<p>$success</p>";
+      } elseif (isset($errors) && !empty($errors)) {
+        echo '<ul>';
+        foreach ($errors as $error) {
+        echo "<li>$error</li>";
+        }
+        echo '</ul>';
+      }
+      ?>
+      <form id="form1" method="post" action="">
+        <h4>Update your password</h4>
         <br />
-        <p>Welcome to your Biindle</p>
-        <p><?php echo $row['first_name'] . " " . $row['last_name']; ?></p>
-        <?php } // End of while loop ?>
-        <?php include("$path2root/assets/inc/logout.inc.php"); ?>
+        <p>
+          <label for="pwd">Password:</label>
+          <input name="pwd" type="password" id="pwd">
+        </p>
+        <p>
+          <label for="conf_pwd">Retype-Password:</label>
+          <input name="conf_pwd" type="password" id="conf_pwd">
+        </p>
+        <p>
+          <button class="btn btn-success" type="submit" name="update_pass" id="update_pass">Update Password</button>
+        </p>
+      </form>
+      <br />
+      <form id="form2" method="post" action="">
+        <h4>Change your email address</h4>
+        <br />
+        <p>
+          <label for="email">Email:</label>
+          <input name="email" type="text" id="email">
+        </p>
+        <h4>Provide your blog or website address</h4>
+        <br />
+        <p>
+          <label for="website">www.yoursite.com</label>
+          <input name="website" type="text" id="website">
+        </p>
+        <h4>Tell us a little about yourself</h4>
+        <br />
+        <p>
+          <label for="about">About</label>
+          <textarea name="about" id="about" rows="10"></textarea>
+        </p>
+        <p>
+          <input type="hidden" name="user" id="user" value="<?php echo $username; ?>" />
+          <button class="btn btn-primary" type="submit" name="update" id="update">Update Settings</button>
+        </p>
+      </form>
+    </div><!-- .row -->
       </div>
     </div>
   </div><!-- row -->

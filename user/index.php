@@ -30,10 +30,23 @@
       <div class="hero-unit">
         <?php while($row = $result->fetch_assoc()) { ?>
         <a class="btn btn-large btn-primary pull-right" href="#" title="#">Ask a Question</a>
-        <h1><?php echo "Hey there, " . $row['first_name'] . " " . $row['last_name'] . "!";?></h1>
-        <h2>Welcome to your Biindle</h2>
         <p><span class="label label-info">Member since: <?php echo $row['created']; ?></span></p>
         <p>You are user <span class="badge badge-inverse">#<?php echo $row['user_id']; ?></span>
+        <br />
+        <h1><?php echo "Hey there, " . $row['first_name'] . " " . $row['last_name'] . "!";?></h1>
+        <br />
+        <h2>Welcome to your Biindle</h2>
+        <br />
+        <h4>My Website</a>
+          <br />
+        <a href="<?php echo $row['website']; ?>" title="<?php echo $row['first_name']; ?>'s Website">
+          <?php echo $row['website']; ?>
+        </a>
+        <br />
+        <br />
+        <h4>About Me</h4>
+        <p><?php echo $row['about']; ?></p>
+        <br />
         <br />
         <?php include("$path2root/assets/inc/logout.inc.php"); ?>
         <?php } // End of while loop ?>
