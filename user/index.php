@@ -1,12 +1,13 @@
 <?php 
   $path2root = "..";
   require_once("$path2root/assets/inc/session_timeout.inc.php");
-  try {
-  include("$path2root/assets/inc/title.inc.php"); 
-  include("$path2root/assets/inc/logout.inc.php");
-  require_once("$path2root/assets/inc/connection.inc.php");
 
   $username = $_SESSION['username'];
+  try {
+  include("$path2root/assets/inc/title.inc.php"); 
+  include("$path2root/assets/inc/user_functions.inc.php");
+  include("$path2root/assets/inc/logout.inc.php");
+  require_once("$path2root/assets/inc/connection.inc.php");
 
   // create database connection
   $conn = dbConnect('read');
@@ -30,6 +31,8 @@
     <div class="span9">
       <div class="hero-unit">
         <?php while($row = $result->fetch_assoc()) { ?>
+        <?php if (file_exists("$path2root/user/images/$username.jpg"))
+          echo "<img src='$path2root/user/images/$username.jpg' />"; ?>
         <a class="btn btn-large btn-primary pull-right" href="#" title="#">Ask a Question</a>
         <p><span class="label label-info">Member since: <?php echo $row['created']; ?></span></p>
         <p>You are user <span class="badge badge-inverse">#<?php echo $row['user_id']; ?></span>
@@ -44,6 +47,11 @@
           <?php echo $row['website']; ?>
         </a>
         <br />
+        <h4>My Email</a>
+          <br />
+        <a href="mailto:<?php echo $row['email']; ?>" title="<?php echo $row['first_name']; ?>'s Email">
+          <?php echo $row['email']; ?>
+        </a>
         <br />
         <h4>About Me</h4>
         <p><?php echo $row['about']; ?></p>

@@ -1,11 +1,13 @@
 <?php 
   $path2root = "..";
   require_once("$path2root/assets/inc/session_timeout.inc.php");
-  try {
-  include("$path2root/assets/inc/title.inc.php");
-  include("$path2root/assets/inc/logout.inc.php"); 
 
   $username = $_SESSION['username'];
+
+  try {
+  include("$path2root/assets/inc/title.inc.php");
+  include("$path2root/assets/inc/user_functions.inc.php");
+  include("$path2root/assets/inc/logout.inc.php"); 
 
   if (isset($_POST['update'])) {
     $email = trim($_POST['email']);
@@ -48,22 +50,20 @@
             echo '</ul>';
           }
           ?>
-          <form class="well form-horizontal" id="form1" method="post" action="">
-            <h4>Update your password</h4>
+          <form class="well form-horizontal" method='post' action='' enctype='multipart/form-data'>
+            <h4>Update your profile image</h4>
             <br />
-            <p>
-              <label for="pwd">Password:</label>
-              <input name="pwd" type="password" id="pwd">
-            </p>
-            <p>
-              <label for="conf_pwd">Retype-Password:</label>
-              <input name="conf_pwd" type="password" id="conf_pwd">
-            </p>
-            <p>
-              <button class="btn btn-success" type="submit" name="update_pass" id="update_pass">Update Password</button>
-            </p>
+            <?php if (file_exists("$path2root/user/images/$username.jpg"))
+              echo "<img src='$path2root/user/images/$username.jpg' />"; ?>
+            <br />
+            <br />
+            <label for="image">Choose an Image:</label>
+            <input type='file' name='image' size='14' maxlength='32' />
+            <br />
+            <br />
+            <button class="btn btn-primary" type="submit" name="upload" id="upload">Update Image</button>
+            </pre>
           </form>
-          <br />
           <form class="well form-horizontal" id="form2" method="post" action="">
             <h4>Change your email address</h4>
             <br />
@@ -86,6 +86,21 @@
             <p>
               <input type="hidden" name="user" id="user" value="<?php echo $username; ?>" />
               <button class="btn btn-primary" type="submit" name="update" id="update">Update Settings</button>
+            </p>
+          </form>
+          <form class="well form-horizontal" id="form1" method="post" action="">
+            <h4>Update your password</h4>
+            <br />
+            <p>
+              <label for="pwd">Password:</label>
+              <input name="pwd" type="password" id="pwd">
+            </p>
+            <p>
+              <label for="conf_pwd">Retype-Password:</label>
+              <input name="conf_pwd" type="password" id="conf_pwd">
+            </p>
+            <p>
+              <button class="btn btn-success" type="submit" name="update_pass" id="update_pass">Update Password</button>
             </p>
           </form>
         </div><!-- .row -->

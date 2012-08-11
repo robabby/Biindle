@@ -1,6 +1,10 @@
 <?php 
   $path2root = ".";
+  session_start();
   ob_start();
+  if (isset($_SESSION['authenticated'])) {
+    $username = $_SESSION['username'];
+  } 
   try {
   include("$path2root/assets/inc/title.inc.php"); 
   include("$path2root/assets/inc/user_agent.php");
