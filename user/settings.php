@@ -9,6 +9,13 @@
   include("$path2root/assets/inc/user_functions.inc.php");
   include("$path2root/assets/inc/logout.inc.php"); 
 
+  require_once("$path2root/assets/inc/connection.inc.php");
+
+  $conn = dbConnect('read');
+  $sql = "SELECT * FROM users WHERE username = '".$username."'";
+  $result = $conn->query($sql) or die(mysqli_error($conn));
+  $row = $result->fetch_assoc(); 
+
   if (isset($_POST['update'])) {
     $email = trim($_POST['email']);
     $website = trim($_POST['website']);
@@ -34,7 +41,7 @@
   <div class="row-fluid">
     <div class="span3">
       <div class="well">
-        <?php include("$path2root/assets/inc/usermenu.inc.php"); ?>
+        <?php include("$path2root/assets/inc/user_menu.inc.php"); ?>
       </div>
     </div>
     <div class="span9">

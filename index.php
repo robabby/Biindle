@@ -3,12 +3,24 @@
   session_start();
   ob_start();
   if (isset($_SESSION['authenticated'])) {
+    
     $username = $_SESSION['username'];
+    
+    // create database connection
+    require_once("$path2root/assets/inc/connection.inc.php");
+    $conn = dbConnect('read');
+    $sql = "SELECT * FROM users WHERE username = '".$username."'";
+    $result = $conn->query($sql) or die(mysqli_error($conn));
+    $row = $result->fetch_assoc(); 
+
+    $user_id = $row['user_id'];
+
+    include("$path2root/assets/inc/logout.inc.php");
   } 
+  
   try {
-  include("$path2root/assets/inc/title.inc.php"); 
-  include("$path2root/assets/inc/logout.inc.php");
-  require_once("$path2root/assets/inc/connection.inc.php");
+  include("$path2root/assets/inc/title.inc.php");
+
 ?>
 <!doctype html>
 <html>

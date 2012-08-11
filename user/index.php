@@ -1,18 +1,26 @@
 <?php 
   $path2root = "..";
-  require_once("$path2root/assets/inc/session_timeout.inc.php");
+  
+  if (isset($_GET['user_id']) || isset($_GET['username'])) {
+    
+    require_once("$path2root/assets/inc/session_timeout.inc.php");
+    include("$path2root/assets/inc/user_functions.inc.php");
+    include("$path2root/assets/inc/logout.inc.php");
+    
+    $username = $_SESSION['username'];
+    
+    // create database connection
+    require_once("$path2root/assets/inc/connection.inc.php");
+    $conn = dbConnect('read');
+    $sql = "SELECT * FROM users WHERE username = '".$username."'";
+    $result = $conn->query($sql) or die(mysqli_error($conn));
+    $row = $result->fetch_assoc(); 
 
-  $username = $_SESSION['username'];
+    $user_id = $row['user_id'];
+  
   try {
+  
   include("$path2root/assets/inc/title.inc.php"); 
-  include("$path2root/assets/inc/user_functions.inc.php");
-  include("$path2root/assets/inc/logout.inc.php");
-  require_once("$path2root/assets/inc/connection.inc.php");
-
-  // create database connection
-  $conn = dbConnect('read');
-  $sql = "SELECT * FROM users WHERE username = '".$username."'";
-  $result = $conn->query($sql) or die(mysqli_error($conn));
 ?>
 <!doctype html>
 <html>
@@ -25,39 +33,49 @@
   <div class="row-fluid">
     <div class="span3">
       <div class="well">
-        <?php include("$path2root/assets/inc/usermenu.inc.php"); ?>
+        <?php if (file_exists("$path2root/user/images/$username.jpg"))
+        echo "<img class='profile-img' src='$path2root/user/images/$username.jpg' />"; ?>
+        
+        <br />
+        <br />
+        <p><span class="label label-info">Member since: <?php echo $row['created']; ?></span></p>
+
+        <br />
+
+        <p><span class="badge badge-info"><?php echo $_GET['user_id']; ?></span></p>
+        <hr />
+        <?php include("$path2root/assets/inc/user_menu.inc.php"); ?>
       </div>
     </div>
     <div class="span9">
       <div class="well">
-        <?php while($row = $result->fetch_assoc()) { ?>
-        <?php if (file_exists("$path2root/user/images/$username.jpg"))
-          echo "<img class='profile-img' src='$path2root/user/images/$username.jpg' />"; ?>
         <a class="btn btn-large btn-primary pull-right" href="#" title="#">Ask a Question</a>
-        <p><span class="label label-info">Member since: <?php echo $row['created']; ?></span></p>
-        <p>You are user <span class="badge badge-inverse">#<?php echo $row['user_id']; ?></span>
         <br />
+        
         <h1><?php echo "Hey there, " . $row['first_name'] . " " . $row['last_name'] . "!";?></h1>
         <br />
+        
         <h2>Welcome to your Biindle</h2>
         <br />
+        
         <h4>My Website</a>
           <br />
         <a href="<?php echo $row['website']; ?>" title="<?php echo $row['first_name']; ?>'s Website">
           <?php echo $row['website']; ?>
         </a>
         <br />
+        
         <h4>My Email</a>
           <br />
         <a href="mailto:<?php echo $row['email']; ?>" title="<?php echo $row['first_name']; ?>'s Email">
           <?php echo $row['email']; ?>
         </a>
         <br />
+        
         <h4>About Me</h4>
+        
         <p><?php echo $row['about']; ?></p>
         <br />
-        <br />
-        <?php } // End of while loop ?>
       </div>
     </div><!-- .well -->
   </div><!-- row -->
@@ -71,4 +89,9 @@
     header("Location: $path2root/error.php");
   }
   ob_end_flush();
+
+} else {
+  header('Location: http://biindle.localhost/');
+}
+
 ?>

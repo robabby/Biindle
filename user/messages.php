@@ -24,7 +24,7 @@
   <div class="row-fluid">
     <div class="span3">
       <div class="well">
-        <?php include("$path2root/assets/inc/usermenu.inc.php"); ?>
+        <?php include("$path2root/assets/inc/user_menu.inc.php"); ?>
       </div>
     </div>
     <div class="span9">

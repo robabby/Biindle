@@ -7,7 +7,7 @@
     $password = trim($_POST['pwd']);
     $_SESSION['username'] = $username;
     // location to redirect on success
-    $redirect = '/user/index.php';
+    $redirect = "/user/index.php";
     require_once("$path2root/assets/inc/authenticate.inc.php");
   }
   ob_start();
