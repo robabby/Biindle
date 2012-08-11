@@ -4,7 +4,7 @@
   require_once("$path2root/assets/inc/session_timeout.inc.php");
   require_once("$path2root/assets/inc/user_functions.inc.php");
 
-  if (isset($_GET['username']) && queryUserName($_GET['username'])) {
+  if (isset($_GET['username'])) {
 
   $username = queryUserName($_GET['username']);
   $user_id = queryUserId($username);
