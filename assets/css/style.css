@@ -64,6 +64,7 @@
 }
 .dropdown .dropdown-toggle .profile-img {
   border:1px solid #ccc;
+  border-radius: 0px !important;
 }
 .dropdown-menu button {
   display: block;
