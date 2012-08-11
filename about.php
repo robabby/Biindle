@@ -7,7 +7,6 @@
   } 
   try {
   include("$path2root/assets/inc/title.inc.php"); 
-  include("$path2root/assets/inc/user_agent.php");
   require_once("$path2root/assets/inc/connection.inc.php");
 ?>
 <!doctype html>

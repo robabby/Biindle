@@ -1,53 +1,52 @@
 <?php
-if (isset($_FILES['image']['name']))
-{
-	$saveto = "$path2root/user/images/$username.jpg";
-	move_uploaded_file($_FILES['image']['tmp_name'], $saveto);
-	$typeok = TRUE;
-	
-	switch($_FILES['image']['type'])
-	{
-		case "image/gif":   $src = imagecreatefromgif($saveto); break;
+// Page Variables
+$user_id = isset($_GET['user_id']);
+$username = isset($_GET['username']);
 
-		case "image/jpeg":  // Both regular and progressive jpegs
-		case "image/pjpeg":	$src = imagecreatefromjpeg($saveto); break;
+// create database connection
+require_once("$path2root/assets/inc/connection.inc.php");
+$conn = dbConnect('read');
+$sql = "SELECT * FROM users WHERE user_id = '".$user_id."'";
+$result = $conn->query($sql) or die(mysqli_error($conn));
+$row = $result->fetch_assoc(); 
 
-		case "image/png":   $src = imagecreatefrompng($saveto); break;
+function logOut() {
+	// run this script only if the logout button has been clicked
+	if (isset($_POST['logout'])) {
+	  // empty the $_SESSION array
+	  $_SESSION = array();
+	  // invalidate the session cookie
+	  if (isset($_COOKIE[session_name()])) {
+		setcookie(session_name(), '', time()-86400, '/');
+	  }
+	  // end session and redirect
+	  session_destroy();
 
-		default:			$typeok = FALSE; break;
+	  header('Location: /');
+	  exit;
 	}
-	
-	if ($typeok)
-	{
-		list($w, $h) = getimagesize($saveto);
-		$max = 150;
-		$tw  = $w;
-		$th  = $h;
-		
-		if ($w > $h && $max < $w)
-		{
-			$th = $max / $w * $h;
-			$tw = $max;
-		}
-		elseif ($h > $w && $max < $h)
-		{
-			$tw = $max / $h * $w;
-			$th = $max;
-		}
-		elseif ($max < $w)
-		{
-			$tw = $th = $max;
-		}
-		
-		$tmp = imagecreatetruecolor($tw, $th);
-		imagecopyresampled($tmp, $src, 0, 0, 0, 0, $tw, $th, $w, $h);
-		imageconvolution($tmp, array( // Sharpen image
-							    array(-1, -1, -1),
-							    array(-1, 16, -1),
-							    array(-1, -1, -1)
-						       ), 8, 0);
-		imagejpeg($tmp, $saveto);
-		imagedestroy($tmp);
-		imagedestroy($src);
-	}
+}
+
+function queryUserId($username) {        
+    $conn = dbConnect('read');
+    $sql = "SELECT * FROM users WHERE username = '".$username."'";
+    $result = $conn->query($sql) or die(mysqli_error($conn));
+    $row = $result->fetch_assoc();
+    return $row['user_id'];
+}
+
+function queryUserName($username) {
+    $conn = dbConnect('read');
+    $sql = "SELECT * FROM users WHERE username = '".$username."'";
+    $result = $conn->query($sql) or die(mysqli_error($conn));
+    $row = $result->fetch_assoc();
+    return $row['username'];
+}
+
+function queryUser($user_id) {        
+    $conn = dbConnect('read');
+    $sql = "SELECT * FROM users WHERE user_id = '".$user_id."'";
+    $result = $conn->query($sql) or die(mysqli_error($conn));
+    $row = $result->fetch_assoc();
+    return $row;
 }

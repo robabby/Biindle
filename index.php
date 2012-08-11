@@ -3,6 +3,8 @@
   session_start();
   ob_start();
   if (isset($_SESSION['authenticated'])) {
+
+    include("$path2root/assets/inc/user_functions.inc.php");
     
     $username = $_SESSION['username'];
     
@@ -14,8 +16,6 @@
     $row = $result->fetch_assoc(); 
 
     $user_id = $row['user_id'];
-
-    include("$path2root/assets/inc/logout.inc.php");
   } 
   
   try {

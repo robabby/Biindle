@@ -1,23 +1,19 @@
 <?php 
   $path2root = "..";
 
-  if (isset($_GET['user_id']) || isset($_GET['username'])) {
-    
-    require_once("$path2root/assets/inc/session_timeout.inc.php");
-    include("$path2root/assets/inc/user_functions.inc.php");
-    include("$path2root/assets/inc/logout.inc.php");
-    
-    $username = $_SESSION['username'];
-    
-    // create database connection
-    require_once("$path2root/assets/inc/connection.inc.php");
-    $conn = dbConnect('read');
-    $sql = "SELECT * FROM users WHERE username = '".$username."'";
-    $result = $conn->query($sql) or die(mysqli_error($conn));
-    $row = $result->fetch_assoc(); 
+  require_once("$path2root/assets/inc/session_timeout.inc.php");
+  require_once("$path2root/assets/inc/user_functions.inc.php");
 
-    $user_id = $row['user_id'];
-  
+  if (isset($_GET['username']) && queryUserName($_GET['username'])) {
+
+  $username = queryUserName($_GET['username']);
+  $user_id = queryUserId($username);
+
+  $conn = dbConnect('read');
+  $sql = "SELECT * FROM users WHERE user_id = '".$user_id."'";
+  $result = $conn->query($sql) or die(mysqli_error($conn));
+  $row = $result->fetch_assoc(); 
+
   try {
   
   include("$path2root/assets/inc/title.inc.php"); 
@@ -33,16 +29,15 @@
   <div class="row-fluid">
     <div class="span3">
       <div class="well">
-        <?php if (file_exists("$path2root/user/images/$username.jpg"))
-        echo "<img class='profile-img' src='$path2root/user/images/$username.jpg' />"; ?>
-        
-        <br />
-        <br />
+        <?php 
+        if (file_exists("$path2root/user/images/$username.jpg"))
+        echo "<img class='profile-img' src='$path2root/user/images/$username.jpg' /><br /><br />"; 
+        ?>
         <p><span class="label label-info">Member since: <?php echo $row['created']; ?></span></p>
 
         <br />
 
-        <p><span class="badge badge-info"><?php echo $_GET['user_id']; ?></span></p>
+        <p><span class="badge badge-info"><?php echo $row['user_id']; ?></span></p>
         <hr />
         <?php include("$path2root/assets/inc/user_menu.inc.php"); ?>
       </div>
@@ -91,7 +86,7 @@
   ob_end_flush();
 
 } else {
-  header('Location: http://biindle.localhost/');
+  header('Location: /');
 }
 
 ?>

@@ -342,7 +342,8 @@ FileETag None
   RewriteCond %{REQUEST_FILENAME} -f [NC,OR] 
   RewriteCond %{REQUEST_FILENAME} -d [NC] 
   RewriteRule .* - [L]
-  RewriteRule ^(.*)$ /user/index.php?username=$username [QSA,L]
+  RewriteRule ^([^/]+)$ /user/index.php?user_id=$1
+  RewriteRule ^([^/]+)$ /user/index.php?username=$1
 </IfModule>
 
 

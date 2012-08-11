@@ -26,11 +26,11 @@
               <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><a href='<?php echo "$path2root"; ?>/user/index.php?user_id=<?php echo $row['user_id']; ?>' title="#">My Biindle</a></li>
+              <li><a href='<?php echo "$path2root"; ?>/user/index.php?username=<?php echo $row['username']; ?>' title="#">My Biindle</a></li>
               <li><a href="<?php echo "$path2root"; ?>/user/settings.php" title="#">Settings</a></li>
               <li><a href="<?php echo "$path2root"; ?>/user/messages.php" title="#">Messages</a></li>
               <li>
-                <form id="logoutForm" method="post" action="">
+                <form id="logoutForm" method="post" action="<?php logOut() ?>">
                   <button name="logout" id="logout">Log Out</button>
                 </form>
               </li>

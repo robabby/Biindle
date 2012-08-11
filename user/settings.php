@@ -1,21 +1,24 @@
 <?php 
   $path2root = "..";
+  
   require_once("$path2root/assets/inc/session_timeout.inc.php");
+  require_once("$path2root/assets/inc/user_functions.inc.php");
 
-  $username = $_SESSION['username'];
+  if (isset($_GET['username']) && queryUserName($_GET['username'])) {
 
-  try {
-  include("$path2root/assets/inc/title.inc.php");
-  include("$path2root/assets/inc/user_functions.inc.php");
-  include("$path2root/assets/inc/logout.inc.php"); 
-
-  require_once("$path2root/assets/inc/connection.inc.php");
+  $username = queryUserName($_GET['username']);
+  $user_id = queryUserId($username);
 
   $conn = dbConnect('read');
-  $sql = "SELECT * FROM users WHERE username = '".$username."'";
+  $sql = "SELECT * FROM users WHERE user_id = '".$user_id."'";
   $result = $conn->query($sql) or die(mysqli_error($conn));
   $row = $result->fetch_assoc(); 
+  
+  try {
+  
+  include("$path2root/assets/inc/title.inc.php"); 
 
+  //Update General Info
   if (isset($_POST['update'])) {
     $email = trim($_POST['email']);
     $website = trim($_POST['website']);
@@ -23,10 +26,66 @@
     $user = trim($_POST['user']);
     require_once("$path2root/assets/inc/update_user.inc.php");
   }
+
+  // Update Password
   if (isset($_POST['update_pass'])) {
     $password = trim($_POST['pwd']);
     $retyped = trim($_POST['conf_pwd']);
     require_once("$path2root/assets/inc/update_password.inc.php");
+  }
+
+  // Update Profile Image
+  if (isset($_FILES['image']['name']))
+  {
+    $saveto = "$path2root/user/images/$username.jpg";
+    move_uploaded_file($_FILES['image']['tmp_name'], $saveto);
+    $typeok = TRUE;
+    
+    switch($_FILES['image']['type'])
+    {
+      case "image/gif":   $src = imagecreatefromgif($saveto); break;
+
+      case "image/jpeg":  // Both regular and progressive jpegs
+      case "image/pjpeg": $src = imagecreatefromjpeg($saveto); break;
+
+      case "image/png":   $src = imagecreatefrompng($saveto); break;
+
+      default:      $typeok = FALSE; break;
+    }
+    
+    if ($typeok)
+    {
+      list($w, $h) = getimagesize($saveto);
+      $max = 150;
+      $tw  = $w;
+      $th  = $h;
+      
+      if ($w > $h && $max < $w)
+      {
+        $th = $max / $w * $h;
+        $tw = $max;
+      }
+      elseif ($h > $w && $max < $h)
+      {
+        $tw = $max / $h * $w;
+        $th = $max;
+      }
+      elseif ($max < $w)
+      {
+        $tw = $th = $max;
+      }
+      
+      $tmp = imagecreatetruecolor($tw, $th);
+      imagecopyresampled($tmp, $src, 0, 0, 0, 0, $tw, $th, $w, $h);
+      imageconvolution($tmp, array( // Sharpen image
+                    array(-1, -1, -1),
+                    array(-1, 16, -1),
+                    array(-1, -1, -1)
+                     ), 8, 0);
+      imagejpeg($tmp, $saveto);
+      imagedestroy($tmp);
+      imagedestroy($src);
+    }
   }
 
 ?>
@@ -76,13 +135,13 @@
             <br />
             <p>
               <label for="email">Email:</label>
-              <input name="email" type="text" id="email">
+              <input name="email" type="text" id="email" value="<?php echo $row['email']; ?>">
             </p>
             <h4>Provide your blog or website address</h4>
             <br />
             <p>
               <label for="website">www.yoursite.com</label>
-              <input name="website" type="text" id="website">
+              <input name="website" type="text" id="website" value="<?php echo $row['website']; ?>">
             </p>
             <h4>Tell us a little about yourself</h4>
             <br />
@@ -123,4 +182,8 @@
     header("Location: $path2root/error.php");
   }
   ob_end_flush();
+  
+} else {
+  header('Location: /');
+}
 ?>

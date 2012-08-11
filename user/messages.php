@@ -1,19 +1,23 @@
 <?php 
   
   $path2root = "..";
+  
   require_once("$path2root/assets/inc/session_timeout.inc.php");
-  try {
-  include("$path2root/assets/inc/title.inc.php"); 
-  include("$path2root/assets/inc/logout.inc.php");
-  require_once("$path2root/assets/inc/connection.inc.php");
+  require_once("$path2root/assets/inc/user_functions.inc.php");
 
-  $username = $_SESSION['username'];
+  if (isset($_GET['username']) && queryUserName($_GET['username'])) {
 
-  // create database connection
-  $conn = dbConnect('write');
-  $sql = "SELECT * FROM users WHERE username = '".$username."'";
+  $username = queryUserName($_GET['username']);
+  $user_id = queryUserId($username);
+
+  $conn = dbConnect('read');
+  $sql = "SELECT * FROM users WHERE user_id = '".$user_id."'";
   $result = $conn->query($sql) or die(mysqli_error($conn));
   $row = $result->fetch_assoc(); 
+  
+  try {
+  
+  include("$path2root/assets/inc/title.inc.php"); 
 
 ?>
 <!doctype html>
@@ -49,4 +53,8 @@
     header("Location: $path2root/error.php");
   }
   ob_end_flush();
+
+} else {
+  header('Location: /');
+}
 ?>
