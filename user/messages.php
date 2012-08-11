@@ -1,4 +1,5 @@
 <?php 
+  
   $path2root = "..";
   require_once("$path2root/assets/inc/session_timeout.inc.php");
   try {
@@ -12,6 +13,8 @@
   $conn = dbConnect('write');
   $sql = "SELECT * FROM users WHERE username = '".$username."'";
   $result = $conn->query($sql) or die(mysqli_error($conn));
+  $row = $result->fetch_assoc(); 
+
 ?>
 <!doctype html>
 <html>
@@ -29,13 +32,10 @@
     </div>
     <div class="span9">
       <div class="hero-unit">
-        <?php while($row = $result->fetch_assoc()) { ?>
-        <h1><?php echo "Hey there, " . $_SESSION['username'] . "!";?></h1>
+        <h1><?php echo "Messages for " . $row['username'] . ".";?></h1>
         <br />
         <p>Welcome to your Biindle</p>
         <p><?php echo $row['first_name'] . " " . $row['last_name']; ?></p>
-        <?php } // End of while loop ?>
-        <?php include("$path2root/assets/inc/logout.inc.php"); ?>
       </div>
     </div>
   </div><!-- row -->

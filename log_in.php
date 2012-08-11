@@ -38,7 +38,7 @@
         <form id="form1" method="post" action="">
           <p>
               <label for="username">Username:</label>
-              <input type="text" name="username" id="username">
+              <input type="text" name="username" id="username" value="<?php echo htmlspecialchars(urldecode($_GET['user'])); ?>">
           </p>
           <p>
               <label for="pwd">Password:</label>
