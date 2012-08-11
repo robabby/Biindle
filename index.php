@@ -13,7 +13,7 @@
 <body id="home">
 <?php include("$path2root/assets/inc/nav.inc.php"); ?>
 
-<div class="container">
+<div class="container-fluid">
   <div class="hero-unit">
     <h1>More eyes to see the world</h1>
     <br />
@@ -32,7 +32,7 @@
           echo "And you are running iOS";
       }
       if($detect->isAndroidOS()){
-          echo "And you are running Android";
+          echo "\nAnd you are running Android";
       }
       if (!$detect->isMobile() && !$detect->isTablet()) {
           echo "You are viewing this site with a Computer!";

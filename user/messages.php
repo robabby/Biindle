@@ -19,8 +19,8 @@
 </head>
 <body id="blank">
 <?php include("$path2root/assets/inc/nav.inc.php"); ?>
-<div class="container">
-  <div class="row">
+<div class="container-fluid">
+  <div class="row-fluid">
     <div class="span3">
       <div class="well">
         <?php include("$path2root/assets/inc/usermenu.inc.php"); ?>

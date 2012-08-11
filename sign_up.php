@@ -21,7 +21,7 @@
 </head>
 <body id="sign_up">
 <?php include("$path2root/assets/inc/nav.inc.php"); ?>
-<div class="container">
+<div class="container-fluid">
   <div class="hero-unit">
     <div class="row">
       <div class="span5">
