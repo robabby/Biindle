@@ -8,7 +8,7 @@
   $username = $_SESSION['username'];
 
   // create database connection
-  $conn = dbConnect('write');
+  $conn = dbConnect('read');
   $sql = "SELECT * FROM users WHERE username = '".$username."'";
   $result = $conn->query($sql) or die(mysqli_error($conn));
 ?>
