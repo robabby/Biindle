@@ -16,16 +16,27 @@
         <ul class="nav pull-right">
           <li <?php if ($currentPage == 'about.php') {
             echo 'class="active"';} ?>><a href="<?php echo $path2root ?>/about.php">About</a></li>
+          <?php if(isset($_SESSION['authenticated'])) { ?>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Account
+              <?php echo $username; ?>
               <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><a href="<?php echo "$path2root"; ?>/log_in.php" title="#">Log-in</a></li>
               <li><a href="<?php echo "$path2root"; ?>/user/" title="#">My Biindle</a></li>
+              <li><a href="<?php echo "$path2root"; ?>/user/settings.php" title="#">Settings</a></li>
+              <li><a href="<?php echo "$path2root"; ?>/user/messages.php" title="#">Messages</a></li>
+              <li>
+                <form id="logoutForm" method="post" action="">
+                  <button name="logout" id="logout">Log Out</button>
+                </form>
+              </li>
             </ul>
           </li>
+          <?php } else { ?>
+          <li <?php if ($currentPage == 'log_in.php') {
+            echo 'class="active"';} ?>><a href="<?php echo $path2root ?>/log_in.php">Log In</a></li>
+          <?php } ?>
         </ul>
       </div><!-- .nav-collapse -->
     </div><!-- .container -->

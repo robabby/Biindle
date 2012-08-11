@@ -1,4 +1,5 @@
 <?php 
+  error_reporting(0);
   $path2root = ".";
   if (isset($_POST['login'])) {
     session_start();
@@ -12,6 +13,7 @@
   ob_start();
   try {
   include("$path2root/assets/inc/title.inc.php"); 
+  include("$path2root/assets/inc/logout.inc.php");
 ?>
 <!doctype html>
 <html>

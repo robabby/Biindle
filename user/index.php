@@ -3,6 +3,7 @@
   require_once("$path2root/assets/inc/session_timeout.inc.php");
   try {
   include("$path2root/assets/inc/title.inc.php"); 
+  include("$path2root/assets/inc/logout.inc.php");
   require_once("$path2root/assets/inc/connection.inc.php");
 
   $username = $_SESSION['username'];
@@ -48,7 +49,6 @@
         <p><?php echo $row['about']; ?></p>
         <br />
         <br />
-        <?php include("$path2root/assets/inc/logout.inc.php"); ?>
         <?php } // End of while loop ?>
       </div>
     </div>

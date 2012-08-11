@@ -14,6 +14,3 @@ if (isset($_POST['logout'])) {
   exit;
 }
 ?>
-<form id="logoutForm" method="post" action="">
-  <input class="btn btn-info" name="logout" type="submit" id="logout" value="Log out">
-</form>
