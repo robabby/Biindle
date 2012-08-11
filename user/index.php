@@ -29,10 +29,10 @@
       </div>
     </div>
     <div class="span9">
-      <div class="hero-unit">
+      <div class="well">
         <?php while($row = $result->fetch_assoc()) { ?>
         <?php if (file_exists("$path2root/user/images/$username.jpg"))
-          echo "<img src='$path2root/user/images/$username.jpg' />"; ?>
+          echo "<img class='profile-img' src='$path2root/user/images/$username.jpg' />"; ?>
         <a class="btn btn-large btn-primary pull-right" href="#" title="#">Ask a Question</a>
         <p><span class="label label-info">Member since: <?php echo $row['created']; ?></span></p>
         <p>You are user <span class="badge badge-inverse">#<?php echo $row['user_id']; ?></span>
@@ -59,7 +59,7 @@
         <br />
         <?php } // End of while loop ?>
       </div>
-    </div>
+    </div><!-- .well -->
   </div><!-- row -->
 </div><!-- .container -->
 <?php include("$path2root/assets/inc/footer.inc.php"); ?>

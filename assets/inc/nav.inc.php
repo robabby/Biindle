@@ -19,7 +19,8 @@
           <?php if(isset($_SESSION['authenticated'])) { ?>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <?php echo $username; ?>
+              <?php if (file_exists("$path2root/user/images/$username.jpg"))
+              echo "<img class='profile-img' src='$path2root/user/images/$username.jpg' width=\"20\" height=\"20\" />&nbsp;&nbsp;$username"; ?>
               <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">

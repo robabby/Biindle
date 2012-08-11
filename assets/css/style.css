@@ -62,6 +62,9 @@
 .navbar .nav {
   margin:0;
 }
+.dropdown .dropdown-toggle .profile-img {
+  border:1px solid #ccc;
+}
 .dropdown-menu button {
   display: block;
   width:100%;
@@ -128,4 +131,13 @@
 #sign_up .hero_unit .success:hover {
   text-decoration: underline;
   color: #3CF;
+}
+
+
+
+/* ==|== User Biindle Page 
+================================================================================================================= */
+
+#user .profile-img {
+  border-radius: 7px;
 }
