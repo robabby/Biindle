@@ -42,4 +42,33 @@ if (!$errors) {
   } else {
 	$errors[] = 'Sorry, there was a problem with the database.';
   }
+
+/*
+  $redirectTo = "/user/insex.php?username=$username";
+  $to = "$email";
+  $from = "Biindle";
+  $subject = "Welcome to Biindle!";
+  $headers = "From: $from\r\n";
+  $message = "Thank you for signing up for Biindle.com!  You have traken your first step towards a better travelling future.\n\n Your Username: $username \n\n Your Password: $password \n\n  You can view your personal Biindle here: <a href=\"http://biindle.com/user/index.php?username=$username\">Biindle.com/$username</a>";
+  $formFields = array_keys($_POST);
+  for ($i = 0; $i < sizeof($formFields); $i++)
+  {
+      $theField = strip_tags($formFields[$i]);
+      $theValue = strip_tags($_POST[$theField]);
+      $message .= $theField;
+      $message .= " = ";
+      $message .= $theValue;
+      $message .= "\n";
+  }
+  $success = mail($to, $subject, $message, $headers);
+  if ($success)
+  {
+      header("Location: " . $redirectTo);
+  }
+  else
+  {
+      echo "An error occurred when sending the email.";
+  }
+*/
+
 }
