@@ -5,21 +5,24 @@ $username = isset($_GET['username']);
 
 // create database connection
 require_once("$path2root/assets/inc/connection.inc.php");
+
 $conn = dbConnect('read');
 $sql = "SELECT * FROM users WHERE user_id = '".$user_id."'";
 $result = $conn->query($sql) or die(mysqli_error($conn));
-$row = $result->fetch_assoc(); 
+$row = $result->fetch_assoc();
 
 function logOut() {
-	// run this script only if the logout button has been clicked
 	if (isset($_POST['logout'])) {
-	  // empty the $_SESSION array
+	  
+      // empty the $_SESSION array
 	  $_SESSION = array();
-	  // invalidate the session cookie
+	  
+      // invalidate the session cookie
 	  if (isset($_COOKIE[session_name()])) {
 		setcookie(session_name(), '', time()-86400, '/');
 	  }
-	  // end session and redirect
+	  
+      // end session and redirect
 	  session_destroy();
 
 	  header('Location: /');
