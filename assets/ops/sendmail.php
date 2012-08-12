@@ -1,5 +1,5 @@
 <?php
-$redirectTo = "../../thank_you.php";
+$redirectTo = "/user/insex.php?username=$username";
 $to = "rob@rawdesigns.net";
 $from = "Feedback Form";
 $subject = "Yo!";
