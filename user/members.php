@@ -35,11 +35,15 @@
       </div>
     </div>
     <div class="span9">
-      <div class="hero-unit">
-        <h1><?php echo "Messages for " . $row['username'] . ".";?></h1>
+      <div class="well">
+        <h2>Biindle Members</h2>
         <br />
-        <p>Welcome to your Biindle</p>
-        <p><?php echo $row['first_name'] . " " . $row['last_name']; ?></p>
+        <?php while($row = $result->fetch_assoc()) { ?>
+        <div class="well">
+          <h3><a href="/user/index.php?username=<?php echo $row['username']; ?>"><?php echo $row['username']; ?></a></h3>
+          <p><?php echo $row['first_name']; ?>&nbsp;<?php echo $row['last_name']; ?></p>
+        </div>
+        <?php } // END OF WHILE LOOP ?>
       </div>
     </div>
   </div><!-- row -->
