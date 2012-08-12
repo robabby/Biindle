@@ -4,10 +4,10 @@
   require_once("$path2root/assets/inc/session_timeout.inc.php");
   require_once("$path2root/assets/inc/user_functions.inc.php");
 
-  if (isset($_GET['username']) && isset($_SESSION['authenticated'])) {
+  if (isset($_SESSION['username']) && isset($_SESSION['authenticated'])) {
 
   $loggedin = true;
-  $username = queryUserName($_GET['username']);
+  $username = $_SESSION['username'];
   $user_id = queryUserId($username);
 
   $conn = dbConnect('read');

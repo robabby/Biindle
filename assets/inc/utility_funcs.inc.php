@@ -1,4 +1,5 @@
 <?php
+require_once("connection.inc.php");
 function convertToParas($text) {
   return preg_replace('/[\r\n]+/', '</p><p>', $text);
 }
@@ -32,5 +33,37 @@ function convertDateToMySQL($month, $day, $year) {
     $result[0] = true;
     $result[1] = "$year-$month-$day";
   }
+  return $result;
+}
+function sanitizeString($var) {
+  $var = strip_tags($var);
+  $var = htmlentities($var);
+  $var = stripslashes($var);
+  return mysql_real_escape_string($var);
+}
+
+
+function createTable($name, $query)
+{
+  if (tableExists($name))
+  {
+    echo "Table '$name' already exists<br />";
+  }
+  else
+  {
+    queryMysql("CREATE TABLE $name($query)");
+    echo "Table '$name' created<br />";
+  }
+}
+
+function tableExists($name)
+{
+  $row = queryMysql("SHOW TABLES LIKE '$name'");
+  return mysql_num_rows($result);
+}
+
+function queryMysql($query)
+{
+  $result = mysql_query($query) or die(mysql_error());
   return $result;
 }
