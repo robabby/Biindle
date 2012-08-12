@@ -4,8 +4,9 @@
   require_once("$path2root/assets/inc/session_timeout.inc.php");
   require_once("$path2root/assets/inc/user_functions.inc.php");
 
-  if (isset($_GET['username'])) {
+  if (isset($_GET['username']) && isset($_SESSION['authenticated'])) {
 
+  $loggedin = true;
   $username = queryUserName($_GET['username']);
   $user_id = queryUserId($username);
 
