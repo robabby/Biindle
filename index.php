@@ -37,7 +37,9 @@
     <br />
     <a class="btn btn-large btn-primary" href="sign_up.php" title="#">Sign Up Now</a>
   </div>
-  <pre>
+  <div class="alert alert-info">
+    <a class="close" data-dismiss="alert" href="#">×</a>
+    <h4 class="alert-heading">Guess what...</h4>
     <?php
       if ($detect->isMobile() && !$detect->isTablet()) {
           echo "You are viewing this site with a Smartphone!";
@@ -55,7 +57,7 @@
           echo "You are viewing this site with a Computer!";
       }
     ?>
-  </pre>
+  </div>
 </div><!-- .container -->
 
 <?php include("$path2root/assets/inc/footer.inc.php"); ?>
