@@ -17,10 +17,7 @@
           <li <?php if ($currentPage == 'about.php') {
             echo 'class="active"';} ?>><a href="<?php echo $path2root ?>/about.php">About</a></li>
           
-          <?php 
-            if(isset($_SESSION['authenticated'])) { 
-              $user = $_SESSION['username'];
-          ?>
+          <?php if(isset($_SESSION['authenticated'])) {  $user = $_SESSION['username']; ?>
           
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">

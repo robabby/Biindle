@@ -10,6 +10,7 @@ $sql = "SELECT * FROM users WHERE username = '".$username."'";
 $result = $conn->query($sql) or die(mysqli_error($conn));
 $row = $result->fetch_assoc();
 
+
 function queryUserId($username) {   
     require_once("connection.inc.php");     
     $conn = dbConnect('read');
@@ -34,7 +35,7 @@ function queryUser($user_id) {
     $sql = "SELECT * FROM users WHERE user_id = '".$user_id."'";
     $result = $conn->query($sql) or die(mysqli_error($conn));
     $row = $result->fetch_assoc();
-    return $row;
+    return $row['user_id'];
 }
 
 function logOut() {
