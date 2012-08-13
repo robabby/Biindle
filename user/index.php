@@ -2,7 +2,7 @@
   $path2root = "..";
 
   require_once("$path2root/assets/inc/session_timeout.inc.php");
-  require_once("$path2root/assets/inc/user_functions.inc.php");
+  require_once("$path2root/assets/inc/user_funcs.inc.php");
 
   if (isset($_SESSION['username']) && isset($_SESSION['authenticated'])) {
 
@@ -60,12 +60,14 @@
           <?php echo $row['website']; ?>
         </a>
         <br />
+        <br />
         
         <h4>My Email</a>
           <br />
         <a href="mailto:<?php echo $row['email']; ?>" title="<?php echo $row['first_name']; ?>'s Email">
           <?php echo $row['email']; ?>
         </a>
+        <br />
         <br />
         
         <h4>About Me</h4>

@@ -1,7 +1,7 @@
 <?php
 // Page Variables
 $user_id = isset($_GET['user_id']);
-$username = isset($_GET['username']);
+$username = isset($_SESSION['username']);
 
 // create database connection
 require_once("$path2root/assets/inc/connection.inc.php");

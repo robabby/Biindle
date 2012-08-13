@@ -3,7 +3,7 @@
   session_start();
   ob_start();
   if (isset($_SESSION['authenticated'])) {
-    include("$path2root/assets/inc/user_functions.inc.php");
+    include("$path2root/assets/inc/user_funcs.inc.php");
     $username = $_SESSION['username'];
   } 
   

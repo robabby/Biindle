@@ -2,7 +2,7 @@
   $path2root = "..";
   
   require_once("$path2root/assets/inc/session_timeout.inc.php");
-  require_once("$path2root/assets/inc/user_functions.inc.php");
+  require_once("$path2root/assets/inc/user_funcs.inc.php");
 
   if (isset($_SESSION['username']) && queryUserName($_GET['username'])) {
 
