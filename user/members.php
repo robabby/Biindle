@@ -25,7 +25,7 @@
 <head>
   <?php include("$path2root/assets/inc/head.inc.php"); ?>
 </head>
-<body id="blank">
+<body id="members">
 <?php include("$path2root/assets/inc/nav.inc.php"); ?>
 <div class="container-fluid">
   <div class="row-fluid">
@@ -35,16 +35,15 @@
       </div>
     </div>
     <div class="span9">
+      <?php while($row = $result->fetch_assoc()) { ?>
       <div class="well">
-        <h2>Biindle Members</h2>
-        <br />
-        <?php while($row = $result->fetch_assoc()) { ?>
-        <div class="well">
-          <h3><a href="/user/profile.php?username=<?php echo $row['username']; ?>"><?php echo $row['username']; ?></a></h3>
-          <p><?php echo $row['first_name']; ?>&nbsp;<?php echo $row['last_name']; ?></p>
-        </div>
-        <?php } // END OF WHILE LOOP ?>
+        <a href="/user/profile.php?username=<?php echo $row['username']; ?>" title="">
+          <img class="profile-img" src="/user/images/<?php echo $row['username']; ?>.jpg" />
+        </a>
+        <h3><a href="/user/profile.php?username=<?php echo $row['username']; ?>"><?php echo $row['first_name'] . " " . $row['last_name']; ?></a></h3>
+        <p><?php echo $row['username']; ?></p>
       </div>
+      <?php } // END OF WHILE LOOP ?>
     </div>
   </div><!-- row -->
 </div><!-- .container -->
