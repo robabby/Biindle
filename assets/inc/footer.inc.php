@@ -3,12 +3,7 @@
   <script src="/assets/js/bootstrap.js"></script>
   <script src="/assets/js/jquery.easing.js"></script>
   <script>
-    $('#drawer ul li a').tooltip('show');
-    $("#toggle").click(function () {
-      $("#drawer").slideToggle(1000, 'easeInOutCubic', function() {
-        // Animation complete.
-      });
-    });
+    $(".alert").alert()
   </script>
   <script>
     var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
