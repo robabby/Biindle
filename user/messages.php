@@ -15,7 +15,6 @@
     $recip = trim($_POST['recip']);
     $auth = trim($_POST['auth']);
     $subject = trim($_POST['subject']);
-    $pm = trim($_POST['pm']);
     $message = trim($_POST['message']);
     require_once("$path2root/assets/inc/send_message.inc.php");
   }
@@ -95,14 +94,6 @@
                 <p>
                   <label for="subject">Subject:</label>
                   <input name="subject" type="text" id="subject">
-                </p>
-                <p>
-                  <label for="first_name">Private:</label>
-                  <input type="radio" name="pm" id="pm" value="0" /> No &nbsp;
-                  <input type="radio" name="pm" id="pm" value="1" /> Yes
-                    <option value="0">No</option>
-                    <option value="1">Yes</option>
-                  </select>
                 </p>
                 <p>
                   <label for="message">Message:</label>
