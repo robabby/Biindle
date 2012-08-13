@@ -28,7 +28,7 @@
             <ul class="dropdown-menu">
               <li><a href='<?php echo "$path2root"; ?>/user/index.php?username=<?php echo $user; ?>' title="#">My Biindle</a></li>
               <li><a href="<?php echo "$path2root"; ?>/user/settings.php?username=<?php echo $user; ?>" title="#">Settings</a></li>
-              <li><a href="<?php echo "$path2root"; ?>/user/messages.php?username=<?php echo $user; ?>&view=1" title="#">Messages</a></li>
+              <li><a href="<?php echo "$path2root"; ?>/user/inbox/index.php?username=<?php echo $user; ?>&view=1" title="#">Inbox</a></li>
               <li><a href="/user/members.php?username=<?php echo $user; ?>"> Members</a></li>
               <li>
                 <form id="logoutForm" method="post" action="<?php logOut() ?>">
