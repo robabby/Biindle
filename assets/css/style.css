@@ -45,6 +45,16 @@
   text-rendering: optimizeLegibility;
 }
 
+.well:before,
+.well:after {
+  display: table;
+  content: "";
+}
+
+.well:after {
+  clear: both;
+}
+
 .navbar-inner, .navbar .dropdown-menu, .hero-unit, .well, .btn {
   border-radius:0;
 }
@@ -139,6 +149,19 @@
 /* ==|== User Biindle Page 
 ================================================================================================================= */
 
-#user .profile-img {
+.profile-img {
   border-radius: 7px;
+}
+
+
+
+/* ==|== Members List Biindle Page 
+================================================================================================================= */
+
+#members .span9 .well .profile-img {
+  margin-right: 5px;
+  padding:5px;
+  background-color:#fff;
+  border:1px solid #dedede;
+  float:left;
 }
