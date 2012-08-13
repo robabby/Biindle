@@ -29,16 +29,6 @@
   <div class="row-fluid">
     <div class="span3">
       <div class="well">
-        <?php 
-        if (file_exists("$path2root/user/images/$username.jpg"))
-        echo "<img class='profile-img' src='$path2root/user/images/$username.jpg' /><br /><br />"; 
-        ?>
-        <p><span class="label label-info">Member since: <?php echo $row['created']; ?></span></p>
-
-        <br />
-
-        <p><span class="badge badge-info"><?php echo $row['user_id']; ?></span></p>
-        <hr />
         <?php include("$path2root/assets/inc/user_menu.inc.php"); ?>
       </div>
     </div>
