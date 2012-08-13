@@ -2,13 +2,14 @@
 // Page Variables
 $user = $_SESSION['username'];
 $user_id = queryUserId($user);
+$created = queryUserCreated($user);
 
 // create database connection
 
 $conn = dbConnect('read');
 $sql = "SELECT * FROM users WHERE user_id = '".$user_id."'";
 $result = $conn->query($sql) or die(mysqli_error($conn));
-$row = $result->fetch_assoc();
+$row = $result->fetch_assoc(); 
 
 function queryUserId($user) {   
     require_once("connection.inc.php");     
@@ -28,13 +29,13 @@ function queryUserName($user) {
     return $row['username'];
 }
 
-function queryUser($user) {  
+function queryUserCreated($user) {  
     require_once("connection.inc.php");       
     $conn = dbConnect('read');
     $sql = "SELECT * FROM users WHERE username = '".$user."'";
     $result = $conn->query($sql) or die(mysqli_error($conn));
     $row = $result->fetch_assoc();
-    return $row;
+    return $row['created'];
 }
 
 function logOut() {
