@@ -1,4 +1,10 @@
 <?php
+$username = trim($_POST['username']);
+$password = trim($_POST['pwd']);
+$_SESSION['username'] = $username;
+// location to redirect on success
+$redirect = "/user/index.php?username=$username";
+
 require_once('connection.inc.php');
 $conn = dbConnect('read');
 // get the username's details from the database

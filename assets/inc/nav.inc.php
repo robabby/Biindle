@@ -17,12 +17,15 @@
           <li <?php if ($currentPage == 'about.php') {
             echo 'class="active"';} ?>><a href="<?php echo $path2root ?>/about.php">About</a></li>
           
-          <?php if(isset($_SESSION['username']) && isset($_SESSION['authenticated'])) { ?>
+          <?php 
+            if(isset($_SESSION['authenticated'])) { 
+              $user = $_SESSION['username'];
+          ?>
           
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <?php if (file_exists("$path2root/user/images/$username.jpg"))
-              echo "<img class='profile-img' src='$path2root/user/images/$username.jpg' width=\"20\" height=\"20\" />&nbsp;&nbsp;$username"; ?>
+              <?php if (file_exists("$path2root/user/images/$user.jpg"))
+              echo "<img class='profile-img' src='$path2root/user/images/$user.jpg' width=\"20\" height=\"20\" />&nbsp;&nbsp;$user"; ?>
               <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">

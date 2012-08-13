@@ -3,17 +3,11 @@
   $path2root = ".";
   if (isset($_POST['login'])) {
     session_start();
-    $username = trim($_POST['username']);
-    $password = trim($_POST['pwd']);
-    $_SESSION['username'] = $username;
-    // location to redirect on success
-    $redirect = "/user/index.php";
     require_once("$path2root/assets/inc/authenticate.inc.php");
   }
   ob_start();
   try {
   include("$path2root/assets/inc/title.inc.php"); 
-  include("$path2root/assets/inc/logout.inc.php");
 ?>
 <!doctype html>
 <html>
@@ -38,7 +32,7 @@
         <form id="form1" method="post" action="">
           <p>
               <label for="username">Username:</label>
-              <input type="text" name="username" id="username" value="<?php echo htmlspecialchars(urldecode($_GET['user'])); ?>">
+              <input type="text" name="username" id="username" value="">
           </p>
           <p>
               <label for="pwd">Password:</label>

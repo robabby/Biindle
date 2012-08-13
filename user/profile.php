@@ -1,23 +1,12 @@
 <?php 
   $path2root = "..";
-
-  require_once("$path2root/assets/inc/session_timeout.inc.php");
-  require_once("$path2root/assets/inc/user_funcs.inc.php");
-
-  if (isset($_SESSION['username']) && isset($_SESSION['authenticated'])) {
-
-  $loggedin = true;
-  $username = $_SESSION['username'];
-  $user_id = queryUserId($username);
-
-  $conn = dbConnect('read');
-  $sql = "SELECT * FROM users WHERE user_id = '".$user_id."'";
-  $result = $conn->query($sql) or die(mysqli_error($conn));
-  $row = $result->fetch_assoc(); 
-
-  try {
+  if (isset($_GET['username'])) {
   
-  include("$path2root/assets/inc/title.inc.php"); 
+    require_once("$path2root/assets/inc/profile_funcs.inc.php");
+
+    try {
+    
+    include("$path2root/assets/inc/title.inc.php"); 
 ?>
 <!doctype html>
 <html>
@@ -30,7 +19,7 @@
   <div class="row-fluid">
     <div class="span3">
       <div class="well">
-        <?php 
+        <?php
         if (file_exists("$path2root/user/images/$username.jpg"))
         echo "<img class='profile-img' src='$path2root/user/images/$username.jpg' /><br /><br />"; 
         ?>
@@ -40,7 +29,7 @@
 
         <p><span class="badge badge-info"><?php echo $row['user_id']; ?></span></p>
         <hr />
-        <?php include("$path2root/assets/inc/user_menu.inc.php"); ?>
+        <?php include("$path2root/assets/inc/profile_menu.inc.php"); ?>
       </div>
     </div>
     <div class="span9">
