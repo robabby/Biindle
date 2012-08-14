@@ -22,12 +22,12 @@
   $conn = dbConnect('read');
 
   // Populate Inbox
-  $sql = "SELECT * FROM messages WHERE recip = '".$user."'";
+  $sql = "SELECT * FROM messages WHERE recip = '".$user."' ORDER BY time DESC";
   $result = $conn->query($sql) or die(mysqli_error($conn));
   $row = $result->fetch_assoc(); 
 
   // Populate Outbox
-  $sql2 = "SELECT * FROM messages WHERE auth = '".$user."'";
+  $sql2 = "SELECT * FROM messages WHERE auth = '".$user."' ORDER BY time DESC";
   $result2 = $conn->query($sql2) or die(mysqli_error($conn));
   $row2 = $result2->fetch_assoc(); 
   

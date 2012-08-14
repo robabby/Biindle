@@ -65,12 +65,27 @@
     </div>
     <div class="span9">
       <div class="well">
+        <a class="btn btn-danger pull-right"><i class="icon-trash icon-white"></i> Delete</a>
         <h3><?php echo htmlentities($subject, ENT_COMPAT, 'utf-8'); ?></h3>
         <span class="label label-info"><?php echo htmlentities($auth, ENT_COMPAT, 'utf-8'); ?></span>
+        <span class="label"><?php echo date('M/d/Y', $time); ?></span>
         <br />
         <br />
         <?php echo htmlentities($message, ENT_COMPAT, 'utf-8'); ?>
-      </div><!-- .span -->
+        <br />
+        <br />
+        <div class="btn-group">
+          <button class="btn"><i class="icon-share-alt"></i> Reply</button>
+          <button class="btn dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#" title="#"><i class="icon-download-alt"></i> Save</a></li>
+            <li><a href="#" title="#"><i class="icon-arrow-right"></i> Forward</a></li>
+            <li><a href="#" title="#"><i class="icon-trash"></i> Delete</a></li>
+          </ul>
+        </div>
+      </div><!-- .well -->
     </div><!-- .row -->
       </div>
     </div>
