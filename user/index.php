@@ -37,7 +37,7 @@
         <a class="btn btn-large btn-primary pull-right" href="#" title="#">Ask a Question</a>
         <br />
         
-        <h1><?php echo $row['first_name'] . " " . $row['last_name'];?></h1>
+        <h1 class="fistLast"><?php echo $row['first_name'] . " " . $row['last_name'];?></h1>
         <br />
         
         <h2>Welcome to your Biindle</h2>
