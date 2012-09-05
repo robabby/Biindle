@@ -34,10 +34,10 @@
     </div>
     <div class="span9">
       <div class="well">
-        <a class="btn btn-large btn-primary pull-right" href="#" title="#">Ask a Question</a>
+        <a class="btn btn-large question" href="#" title="#">Ask a Question</a>
         <br />
         
-        <h1 class="fistLast"><?php echo $row['first_name'] . " " . $row['last_name'];?></h1>
+        <h1 id="stats" rel="popover" data-original-title="User Stats" data-content="This can be an area to produce statisics like questions asked, vantage points acquired, or badges earned." class="firstLast"><?php echo $row['first_name'] . " " . $row['last_name'];?></h1>
         <br />
         
         <h2>Welcome to your Biindle</h2>
@@ -68,6 +68,12 @@
   </div><!-- row -->
 </div><!-- .container -->
 <?php include("$path2root/assets/inc/footer.inc.php"); ?>
+<script>
+  $('#stats').popover({
+    animation: true,
+    placement: 'bottom'
+  });
+</script>
 </body>
 </html>
 <?php

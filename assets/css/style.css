@@ -42,33 +42,23 @@
 
 * {
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
 }
 
 .well:before,
-.well:after {
-  display: table;
-  content: "";
-}
-
-.well:after {
-  clear: both;
-}
-
+.well:after { display: table; content: ""; }
+.well:after { clear: both; }
+.hero-unit, .well {position: relative;}
 .navbar-inner, .navbar .dropdown-menu, .hero-unit, .well, .btn {
   border-radius:0;
 }
-
 .navbar-inner {
   background-color:#333;
   background-image:none;
 }
-
 .navbar .brand {
   margin:0 0 0 -10px;
   font-family: 'SansationRegular';
 }
-
 .navbar .nav {
   margin:0;
 }
@@ -149,9 +139,38 @@
 /* ==|== User Biindle Page 
 ================================================================================================================= */
 
-#user .firstLast {
+#user h1.firstLast {
   display: block;
+  position: absolute;
+  top:0px;
+  left:0px;
+  background-color:#fff;
+  padding:5px 25px;
+  border-right:1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-radius:0px 0px 10px 0px;
+  background: #ffffff; /* Old browsers */
+  background: -moz-linear-gradient(top, #ffffff 0%, #efefef 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#efefef)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #ffffff 0%,#efefef 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #ffffff 0%,#efefef 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #ffffff 0%,#efefef 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #ffffff 0%,#efefef 100%); /* W3C */
+  color:#555;
+  font-size:32px;
+  font-family: 'TradeGothicLTStdBdCnNo.20';
+  text-shadow:0px 1px 1px #fff;
 }
+#user .question {
+  position: absolute;
+  top:-1px;
+  right:-1px;
+  padding:15px 25px;
+  font-family: 'TradeGothicLTStdBdCnNo.20';
+  font-variant: small-caps;
+  font-size:25px;
+}
+
 
 #user_menu li .btn {
   text-align:left;
