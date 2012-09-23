@@ -9,7 +9,7 @@
       <span class="icon-bar"></span>
     </a>
     <a class="brand" href="/">
-      <img src="/img/logo.png" alt="" width="53" />
+      <img src="/img/logo_inverted.png" alt="" width="53" />
     </a>
     <div class="container">
       <div class="nav-collapse">
