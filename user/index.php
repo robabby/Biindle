@@ -40,12 +40,9 @@
         <h1 id="stats" rel="popover" data-original-title="User Stats" data-content="This can be an area to produce statisics like questions asked, vantage points acquired, or badges earned." class="firstLast"><?php echo $row['first_name'] . " " . $row['last_name'];?></h1>
         <br />
         
-        <h2>Welcome to your Biindle</h2>
-        <br />
-        
         <h4>My Website</a>
           <br />
-        <a href="<?php echo $row['website']; ?>" title="<?php echo $row['first_name']; ?>'s Website">
+        <a target="_blank" href="<?php echo $row['website']; ?>" title="<?php echo $row['first_name']; ?>'s Website">
           <?php echo $row['website']; ?>
         </a>
         <br />
@@ -53,7 +50,7 @@
         
         <h4>My Email</a>
           <br />
-        <a href="mailto:<?php echo $row['email']; ?>" title="<?php echo $row['first_name']; ?>'s Email">
+          <a href="mailto:<?php echo $row['email']; ?>" title="<?php echo $row['first_name']; ?>'s Email">
           <?php echo $row['email']; ?>
         </a>
         <br />
