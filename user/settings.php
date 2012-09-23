@@ -148,7 +148,7 @@
             <br />
             <p>
               <label for="about">About</label>
-              <textarea name="about" id="about" rows="10"></textarea>
+              <textarea name="about" id="about" rows="5"></textarea>
             </p>
             <p>
               <input type="hidden" name="user" id="user" value="<?php echo $username; ?>" />
