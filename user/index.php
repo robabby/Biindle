@@ -98,7 +98,7 @@
         map = new google.maps.Map(document.getElementById("place"), myOptions);
         marker = new google.maps.Marker({
                        position: blatlng,
-                       title: "center",
+                       title: "Your Location",
                        icon: xmarker,
                        map: map });
       listener = google.maps.event.addListener(map, 'click', function(event) {
