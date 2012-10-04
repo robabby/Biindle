@@ -9,7 +9,7 @@
       <span class="icon-bar"></span>
     </a>
     <a class="brand" href="/">
-      <img src="/img/logo_inverted.png" alt="" width="53" />
+      <img src="<?php echo $path2root; ?>/img/logo_inverted.png" alt="" width="53" />
     </a>
     <div class="container">
       <div class="nav-collapse">
@@ -41,7 +41,11 @@
           <?php } else { ?>
           
           <li <?php if ($currentPage == 'log_in.php') {
-            echo 'class="active"';} ?>><a href="<?php echo $path2root ?>/log_in.php">Log In</a></li>
+            echo 'class="active"';} ?>>
+
+            <!--<a href="<?php echo $path2root ?>/log_in.php">Log In</a>-->
+
+          </li>
           
           <?php } ?>
         </ul>
