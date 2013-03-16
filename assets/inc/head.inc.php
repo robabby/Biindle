@@ -1,7 +1,3 @@
-<?php
-  require_once("$path2root/assets/inc/mobile-detect/Mobile_Detect.php");
-  $detect = new Mobile_Detect(); 
-?>
 <meta charset="utf-8">
 
 <!-- Use the .htaccess and remove these lines to avoid edge case issues.

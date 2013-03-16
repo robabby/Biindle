@@ -27,35 +27,10 @@
 <div class="container-fluid">
   <div class="hero-unit">
     <h1>More eyes to see the world</h1>
-    <!--
     <br />
     <br />
     <a class="btn btn-large btn-primary" href="sign_up.php" title="#">Sign Up Now</a>
-    -->
   </div>
-  <!--
-  <div class="alert alert-info">
-    <a class="close" data-dismiss="alert" href="#">×</a>
-    <h4 class="alert-heading">Guess what...</h4>
-    <?php
-      if ($detect->isMobile() && !$detect->isTablet()) {
-          echo "You are viewing this site with a Smartphone!";
-      } 
-      if ($detect->isTablet() && $detect->isMobile()) {
-          echo "You are viewing this site with a Tablet!";
-      } 
-      if($detect->isiOS()){
-          echo "And you are running iOS";
-      }
-      if($detect->isAndroidOS()){
-          echo "\nAnd you are running Android";
-      }
-      if (!$detect->isMobile() && !$detect->isTablet()) {
-          echo "You are viewing this site with a Computer!";
-      }
-    ?>
-  </div>
-  -->
 </div><!-- .container -->
 
 <?php include("$path2root/assets/inc/footer.inc.php"); ?>
