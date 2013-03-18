@@ -30,18 +30,22 @@ function dbConnect($usertype, $connectionType = 'mysqli') {
   $host = '127.0.0.1';  
   $db = 'biindleadmin';
   if ($usertype  == 'read') {
-  $user = 'root';
-  $pwd = 'root';
+    $user = 'root';
+    $pwd = 'root';
   } elseif ($usertype == 'write') {
     $user = 'root';
-  $pwd = 'root';
+    $pwd = 'root';
   } else {
-  exit('Unrecognized connection type');
+    echo "Could not connect to database" . mysql_error();
+    exit('Unrecognized connection type');
   }
   if ($connectionType == 'mysqli') {
-  $result = new mysqli($host, $user, $pwd, $db) ;
-  if (!$result) die ('Cannot connect to database');
-  return $result;
+    $result = new mysqli($host, $user, $pwd, $db) ;
+    if (!$result) {
+      echo "Could not connect to database" . mysql_error();
+      die ('Cannot connect to database');
+    }
+    return $result;
   } else {
     try {
       return new PDO("mysql:host=$host;dbname=$db", $user, $pwd);

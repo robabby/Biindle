@@ -1,5 +1,5 @@
 <?php 
-  error_reporting(0);
+  //error_reporting(0);
   $path2root = ".";
   if (isset($_POST['login'])) {
     session_start();

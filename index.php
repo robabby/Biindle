@@ -14,7 +14,17 @@
     $user_id = $row['user_id'];
   } 
   try {
-  include("$path2root/assets/inc/title.inc.php");
+    /*
+    require_once("$path2root/assets/inc/connection.inc.php");
+    $conn = dbConnect('read');
+    $sql = "SELECT * FROM users WHERE username = 'stat30fbliss'";
+    $result = $conn->query($sql) or die(mysqli_error($conn));
+    $row = $result->fetch_assoc(); 
+    $user_id = $row['user_id'];
+    include("$path2root/assets/inc/title.inc.php");
+    */
+
+    //phpinfo();
 ?>
 <!doctype html>
 <html>
