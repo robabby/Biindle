@@ -209,5 +209,4 @@
 } else {
   header('Location: /');
 }
-
 ?>
