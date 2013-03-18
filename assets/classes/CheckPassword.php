@@ -14,9 +14,10 @@ class Ps2_CheckPassword{
   }
 
   public function requireMixedCase() {
-	$this->_mixedCase = true;
+	$this->_mixedCase = false; // Require at least 1 capital letter?
   }
   
+  /*
   public function requireNumbers($num =1) {
 	if (is_numeric($num) && $num > 0) {
 	  $this->_minimumNumbers = (int) $num; 
@@ -28,6 +29,7 @@ class Ps2_CheckPassword{
 	  $this->_minimumSymbols = (int) $num; 
 	}
   }
+  */
 
   public function check() {
     if (preg_match('/\s/', $this->_password)) {
@@ -36,6 +38,7 @@ class Ps2_CheckPassword{
     if (strlen($this->_password) < $this->_minimumChars) {
 	  $this->_errors[] = "Password must be at least $this->_minimumChars characters.";
     } 
+    /*
 	if ($this->_mixedCase) {
 	  $pattern = '/(?=.*[a-z])(?=.*[A-Z])/';
 	  if (!preg_match($pattern, $this->_password)) {
@@ -56,6 +59,7 @@ class Ps2_CheckPassword{
 		$this->_errors[] = "Password should include at least $this->_minimumSymbols nonalphanumeric character(s)."; 
 	  }
 	}
+	*/
 	return $this->_errors ? false : true;
   }
 
