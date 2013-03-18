@@ -1,8 +1,7 @@
 <div class="well user-sidebar">
-	<?php 
-	if (file_exists("$path2root/user/images/$user.jpg"))
-	echo "<img class='profile-img' src='$path2root/user/images/$user.jpg' />"; 
-	?>
+	<div class="img-wrap">
+		<?php if (file_exists("$path2root/user/images/$user.jpg")) echo "<img class='profile-img' src='$path2root/user/images/$user.jpg' />"; ?>
+	</div>
 	<ul id="user_menu" class="nav nav-list">
 	  <li><a href="/user/index.php?username=<?php echo $user; ?>"><i class="icon-home"></i> Profile</a></li>
 	  <li><a href="/user/settings.php?username=<?php echo $user; ?>"><i class="icon-cog"></i> Account Settings</a></li>
