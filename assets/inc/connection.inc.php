@@ -31,10 +31,10 @@ function dbConnect($usertype, $connectionType = 'mysqli') {
   $db = 'biindleadmin';
   if ($usertype  == 'read') {
   $user = 'root';
-  $pwd = '';
+  $pwd = 'root';
   } elseif ($usertype == 'write') {
     $user = 'root';
-  $pwd = '';
+  $pwd = 'root';
   } else {
   exit('Unrecognized connection type');
   }
