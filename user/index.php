@@ -154,9 +154,7 @@
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span3">
-      <div class="well">
-        <?php include("$path2root/assets/inc/user_menu.inc.php"); ?>
-      </div>
+      <?php include("$path2root/assets/inc/user_menu.inc.php"); ?>
     </div>
     <div class="span9">
       <div class="well">

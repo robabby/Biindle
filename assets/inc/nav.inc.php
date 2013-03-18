@@ -27,9 +27,9 @@
             </a>
             <ul class="dropdown-menu">
               <li><a href="<?php echo "$path2root"; ?>/user/index.php?username=<?php echo $user; ?>" title="#"><i class="icon-home"></i> My Biindle</a></li>
-              <li><a href="<?php echo "$path2root"; ?>/user/settings.php?username=<?php echo $user; ?>" title="#"><i class="icon-cog"></i> Settings</a></li>
               <li><a href="<?php echo "$path2root"; ?>/user/inbox/index.php?username=<?php echo $user; ?>" title="#"><i class="icon-inbox"></i> Inbox</a></li>
               <li><a href="/user/members.php?username=<?php echo $user; ?>"><i class="icon-user"></i> Members</a></li>
+              <li><a href="<?php echo "$path2root"; ?>/user/settings.php?username=<?php echo $user; ?>" title="#"><i class="icon-cog"></i> Settings</a></li>
               <li>
                 <form id="logoutForm" method="post" action="<?php logOut() ?>">
                   <button name="logout" id="logout"><i class="icon-road"></i> Log Out</button>

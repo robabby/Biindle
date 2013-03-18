@@ -86,7 +86,6 @@ a, a:hover {text-decoration: none;}
 ================================================================================================================= */
 
 #home { 
-  /*
   background: url('/img/bg.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -94,7 +93,6 @@ a, a:hover {text-decoration: none;}
   background-size: cover;
   filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/img/bg.jpg', sizingMethod='scale');
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/img/bg.jpg', sizingMethod='scale')";
-  */
 }
 #home .hero-unit {
   background-color:#fff;
@@ -168,12 +166,20 @@ a, a:hover {text-decoration: none;}
   font-variant: small-caps;
   font-size:25px;
 }
-#user_menu li .btn {
-  text-align:left;
-}
-.profile-img {
+
+.user-sidebar .profile-img {
+  display: block;
+  position: relative;
+  max-width: 100%;
+  margin:5px 5px 15px;
   border-radius: 7px;
 }
+.user-sidebar #user_menu {
+  padding:10px 0 0 0;
+  margin:5px;
+  border-top:5px solid #ccc;
+}
+
 #user #stats {
   cursor: pointer;
 }
