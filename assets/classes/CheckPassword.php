@@ -8,16 +8,16 @@ class Ps2_CheckPassword{
   protected $_minimumSymbols = 0;
   protected $_errors = array();
 
-  public function __construct($password, $minimumChars = 8) {
+  public function __construct($password, $minimumChars = 6) {
 	$this->_password = $password;
 	$this->_minimumChars = $minimumChars;
   }
 
+  /*
   public function requireMixedCase() {
 	$this->_mixedCase = false; // Require at least 1 capital letter?
   }
-  
-  /*
+
   public function requireNumbers($num =1) {
 	if (is_numeric($num) && $num > 0) {
 	  $this->_minimumNumbers = (int) $num; 
@@ -33,10 +33,10 @@ class Ps2_CheckPassword{
 
   public function check() {
     if (preg_match('/\s/', $this->_password)) {
-      $this->_errors[] = 'Password cannot contain spaces.';	
+      $this->_errors[] = "<div class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\" href=\"#\">&times;</a>Password cannot contain spaces.</div>";	
     }
     if (strlen($this->_password) < $this->_minimumChars) {
-	  $this->_errors[] = "Password must be at least $this->_minimumChars characters.";
+	  $this->_errors[] = "<div class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\" href=\"#\">&times;</a>Password must be at least $this->_minimumChars characters.</div>";
     } 
     /*
 	if ($this->_mixedCase) {

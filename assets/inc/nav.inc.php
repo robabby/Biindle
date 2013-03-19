@@ -21,18 +21,25 @@
           
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <?php if (file_exists("$path2root/user/images/$user.jpg"))
-              echo "<img class='profile-img' src='$path2root/user/images/$user.jpg' width=\"20\" height=\"20\" />&nbsp;&nbsp;$user"; ?>
+              <?php 
+              if (file_exists("$path2root/user/images/$user.jpg")) {
+                echo "<img class='profile-img' src='$path2root/user/images/$user.jpg' width=\"20\" height=\"20\" />&nbsp;&nbsp;$user"; 
+              } else {
+                echo "<img class='profile-img' src='http://placekitten.com/150/150' width=\"20\" height=\"20\" />&nbsp;&nbsp;$user"; 
+              }
+              ?>
               <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><a href="<?php echo "$path2root"; ?>/user/index.php?username=<?php echo $user; ?>" title="#"><i class="icon-home"></i> My Biindle</a></li>
+              <li><a href="<?php echo "$path2root"; ?>/user/index.php?username=<?php echo $user; ?>" title="#"><i class="icon-home"></i> Profile</a></li>
+              <li><a href="#" title="#"><i class="icon-fire"></i> Feeds</a></li>
+              <li><a href="#" title="#"><i class="icon-th"></i> Apps</a></li>
               <li><a href="<?php echo "$path2root"; ?>/user/inbox/index.php?username=<?php echo $user; ?>" title="#"><i class="icon-inbox"></i> Inbox</a></li>
               <li><a href="/user/members.php?username=<?php echo $user; ?>"><i class="icon-user"></i> Members</a></li>
               <li><a href="<?php echo "$path2root"; ?>/user/settings.php?username=<?php echo $user; ?>" title="#"><i class="icon-cog"></i> Settings</a></li>
               <li>
                 <form id="logoutForm" method="post" action="<?php logOut() ?>">
-                  <button name="logout" id="logout"><i class="icon-road"></i> Log Out</button>
+                  <button name="logout" id="logout">&nbsp;<i class="icon-road"></i> Log Out</button>
                 </form>
               </li>
             </ul>

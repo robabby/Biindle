@@ -97,8 +97,8 @@ a, a:hover {text-decoration: none;}
 #home .hero-unit {
   background-color:#fff;
   background-color:rgba(255, 255, 255, .80);
-  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, .8);
-  border-radius:5px;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, .3);
+  border-radius:0px;
 }
 #home .hero-unit h1 {
   font-size:42px;
@@ -175,9 +175,10 @@ a, a:hover {text-decoration: none;}
   border-radius: 7px;
 }
 .user-sidebar #user_menu {
-  padding:10px 0 0 0;
+  padding:10px 0 10px 0;
   margin:5px;
   border-top:5px solid #ccc;
+  border-bottom:5px solid #ccc;
 }
 
 #user #stats {

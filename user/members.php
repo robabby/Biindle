@@ -30,15 +30,21 @@
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span3">
-      <div class="well">
-        <?php include("$path2root/assets/inc/user_menu.inc.php"); ?>
-      </div>
+      <?php include("$path2root/assets/inc/user_menu.inc.php"); ?>
     </div>
     <div class="span9">
       <?php while($row = $result->fetch_assoc()) { ?>
       <div class="well">
+        <a class="btn btn-success pull-right" href="#">View Biindle</a>
+
         <a href="/user/profile.php?username=<?php echo $row['username']; ?>" title="">
-          <img class="profile-img" src="/user/images/<?php echo $row['username']; ?>.jpg" />
+          <?php 
+          if (file_exists("$path2root/user/images/".$row['username'].".jpg")) {
+            echo "<img class='profile-img' src='$path2root/user/images/".$row['username'].".jpg' />"; 
+          } else {
+            echo "<img class='profile-img img-polaroid' src='http://placekitten.com/150/150' />"; 
+          }
+          ?>
         </a>
         <h3><a href="/user/profile.php?username=<?php echo $row['username']; ?>"><?php echo $row['first_name'] . " " . $row['last_name']; ?></a></h3>
         <p><?php echo $row['username']; ?></p>

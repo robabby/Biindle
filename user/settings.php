@@ -35,6 +35,12 @@
     require_once("$path2root/assets/inc/update_password.inc.php");
   }
 
+  // Update Privacy
+  if (isset($_POST['update_privacy'])) {
+    $privacy = trim($_POST['privacy']);
+    require_once("$path2root/assets/inc/update_user.inc.php");
+  }
+
   // Update Profile Image
   if (isset($_FILES['image']['name']))
   {
@@ -100,9 +106,7 @@
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span3">
-      <div class="well">
-        <?php include("$path2root/assets/inc/user_menu.inc.php"); ?>
-      </div>
+      <?php include("$path2root/assets/inc/user_menu.inc.php"); ?>
     </div>
     <div class="span9">
         <div class="row-fluid">
@@ -110,13 +114,13 @@
           if (isset($success)) {
             echo "<p>$success</p>";
           } elseif (isset($errors) && !empty($errors)) {
-            echo '<ul>';
             foreach ($errors as $error) {
-            echo "<li>$error</li>";
+              echo "<p>$error</p>";
             }
-            echo '</ul>';
           }
           ?>
+
+          <!-- Update Profile Image -->
           <form class="well form-horizontal" method='post' action='' enctype='multipart/form-data'>
             <h4>Update your profile image</h4>
             <br />
@@ -131,6 +135,8 @@
             <button class="btn btn-primary" type="submit" name="upload" id="upload">Update Image</button>
             </pre>
           </form>
+
+          <!-- Change Email Address -->
           <form class="well form-horizontal" id="form2" method="post" action="">
             <h4>Change your email address</h4>
             <br />
@@ -138,16 +144,14 @@
               <label for="email">Email:</label>
               <input name="email" type="text" id="email" value="<?php echo $row['email']; ?>">
             </p>
+            <br>
             <h4>Provide your blog or website address</h4>
-            <br />
             <p>
-              <label for="website">www.yoursite.com</label>
-              <input name="website" type="text" id="website" value="<?php echo $row['website']; ?>">
+              <input name="website" type="text" id="website" value="<?php echo $row['website']; ?>" placeholder="www.yoursite.com">
             </p>
+            <br>
             <h4>Tell us a little about yourself</h4>
-            <br />
             <p>
-              <label for="about">About</label>
               <textarea name="about" id="about" rows="5"></textarea>
             </p>
             <p>
@@ -155,6 +159,8 @@
               <button class="btn btn-primary" type="submit" name="update" id="update">Update Settings</button>
             </p>
           </form>
+
+          <!-- Update Password -->
           <form class="well form-horizontal" id="form1" method="post" action="">
             <h4>Update your password</h4>
             <br />
@@ -168,6 +174,23 @@
             </p>
             <p>
               <button class="btn btn-success" type="submit" name="update_pass" id="update_pass">Update Password</button>
+            </p>
+          </form>
+
+          <!-- Set Profile to Private -->
+          <form class="well form-horizontal" id="form1" method="post" action="">
+            <h4>Privacy Mode</h4>
+            <p>Would you like to make your profile private, and hide it from other viewers?</p>
+            <br />
+            <p>
+              <label for="private">Turn on Privacy Mode:</label>
+              <select name="private" id="private">
+                <option value="0">Public</option>
+                <option value="1">Private</option>
+              </select>
+            </p>
+            <p>
+              <button class="btn btn-success" type="submit" name="update_privacy" id="update_privacy">Update Privacy</button>
             </p>
           </form>
         </div><!-- .row -->

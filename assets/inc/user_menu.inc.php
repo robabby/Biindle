@@ -1,6 +1,12 @@
-<div class="well user-sidebar">
+<div class="well user-sidebar" data-spy="affix" data-offset-top="200">
 	<div class="img-wrap">
-		<?php if (file_exists("$path2root/user/images/$user.jpg")) echo "<img class='profile-img' src='$path2root/user/images/$user.jpg' />"; ?>
+		<?php 
+		if (file_exists("$path2root/user/images/$user.jpg")) {
+			echo "<img class='profile-img img-polaroid' src='$path2root/user/images/$user.jpg' />"; 
+		} else {
+			echo "<img class='profile-img img-polaroid' src='http://placekitten.com/150/150' />"; 
+		}
+		?>
 	</div>
 	<ul id="user_menu" class="nav nav-list">
 	  <li><a href="/user/index.php?username=<?php echo $user; ?>"><i class="icon-home"></i> Profile</a></li>

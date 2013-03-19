@@ -184,8 +184,48 @@
         
         <p><?php echo $row['about']; ?></p>
         <br />
-      </div>
-    </div><!-- .well -->
+      </div><!-- .well -->
+      <div class="well">
+        <br>
+        <br>
+        <br>
+      </div><!-- .well -->
+      <div class="well">
+        <br>
+        <br>
+        <br>
+      </div><!-- .well -->
+      <div class="well">
+        <br>
+        <br>
+        <br>
+      </div><!-- .well -->
+      <div class="well">
+        <br>
+        <br>
+        <br>
+      </div><!-- .well -->
+      <div class="well">
+        <br>
+        <br>
+        <br>
+      </div><!-- .well -->
+      <div class="well">
+        <br>
+        <br>
+        <br>
+      </div><!-- .well -->
+      <div class="well">
+        <br>
+        <br>
+        <br>
+      </div><!-- .well -->
+      <div class="well">
+        <br>
+        <br>
+        <br>
+      </div><!-- .well -->
+    </div><!-- .span9 -->
   </div><!-- row -->
 </div><!-- .container -->
 <?php include("$path2root/assets/inc/footer.inc.php"); ?>
