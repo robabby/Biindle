@@ -20,7 +20,7 @@
   include("$path2root/assets/inc/title.inc.php"); 
 
   //Update General Info
-  if (isset($_POST['update'])) {
+  if (isset($_POST['update_info'])) {
     $email = trim($_POST['email']);
     $website = trim($_POST['website']);
     $about = trim($_POST['about']);
@@ -37,8 +37,22 @@
 
   // Update Privacy
   if (isset($_POST['update_privacy'])) {
-    $privacy = trim($_POST['privacy']);
-    require_once("$path2root/assets/inc/update_user.inc.php");
+    // include the connection file
+    require_once("$path2root/assets/inc/connection.inc.php");
+    $conn = dbConnect('write');
+    // prepare SQL statement
+    $sql = "UPDATE users SET privacy= ? WHERE username= ?";
+    $stmt = $conn->stmt_init();
+    $stmt = $conn->prepare($sql);
+    // bind parameters and insert the details into the database
+    $stmt->bind_param('ss', $_POST['private'], $_POST['user']);
+    $stmt->execute();
+    $stmt->close();
+    if ($stmt->affected_rows == 1) {
+      $success = "<div class=\"alert alert-success\">Congratulations! You have successfully updated your profile.</div>";
+    }  else {
+      $errors[] = 'Sorry, there was a problem with the database.';
+    }
   }
 
   // Update Profile Image
@@ -48,37 +62,27 @@
     move_uploaded_file($_FILES['image']['tmp_name'], $saveto);
     $typeok = TRUE;
     
-    switch($_FILES['image']['type'])
-    {
+    switch($_FILES['image']['type']) {
       case "image/gif":   $src = imagecreatefromgif($saveto); break;
-
       case "image/jpeg":  // Both regular and progressive jpegs
       case "image/pjpeg": $src = imagecreatefromjpeg($saveto); break;
-
       case "image/png":   $src = imagecreatefrompng($saveto); break;
-
       default:      $typeok = FALSE; break;
     }
     
-    if ($typeok)
-    {
+    if ($typeok) {
       list($w, $h) = getimagesize($saveto);
       $max = 150;
       $tw  = $w;
       $th  = $h;
       
-      if ($w > $h && $max < $w)
-      {
+      if ($w > $h && $max < $w) {
         $th = $max / $w * $h;
         $tw = $max;
-      }
-      elseif ($h > $w && $max < $h)
-      {
+      } elseif ($h > $w && $max < $h) {
         $tw = $max / $h * $w;
         $th = $max;
-      }
-      elseif ($max < $w)
-      {
+      } elseif ($max < $w) {
         $tw = $th = $max;
       }
       
@@ -152,11 +156,11 @@
             <br>
             <h4>Tell us a little about yourself</h4>
             <p>
-              <textarea name="about" id="about" rows="5"></textarea>
+              <textarea name="about" id="about" rows="5"><?php echo $row['about']; ?></textarea>
             </p>
             <p>
               <input type="hidden" name="user" id="user" value="<?php echo $username; ?>" />
-              <button class="btn btn-primary" type="submit" name="update" id="update">Update Settings</button>
+              <button class="btn btn-primary" type="submit" name="update_info" id="update_info">Update Settings</button>
             </p>
           </form>
 
@@ -183,13 +187,14 @@
             <p>Would you like to make your profile private, and hide it from other viewers?</p>
             <br />
             <p>
-              <label for="private">Turn on Privacy Mode:</label>
+              <label for="private">Turn Privacy Mode on:</label>
               <select name="private" id="private">
                 <option value="0">Public</option>
                 <option value="1">Private</option>
               </select>
             </p>
             <p>
+              <input type="hidden" name="user" id="user" value="<?php echo $username; ?>" />
               <button class="btn btn-success" type="submit" name="update_privacy" id="update_privacy">Update Privacy</button>
             </p>
           </form>

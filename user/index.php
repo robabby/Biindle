@@ -5,18 +5,18 @@
 
   if (isset($_SESSION['username']) && isset($_SESSION['authenticated'])) {
 
-  $loggedin = true;
-  $username = $_SESSION['username'];
-  $user_id = queryUserId($username);
+    $loggedin = true;
+    $username = $_SESSION['username'];
+    $user_id = queryUserId($username);
 
-  $conn = dbConnect('read');
-  $sql = "SELECT * FROM users WHERE user_id = '".$user_id."'";
-  $result = $conn->query($sql) or die(mysqli_error($conn));
-  $row = $result->fetch_assoc(); 
+    $conn = dbConnect('read');
+    $sql = "SELECT * FROM users WHERE user_id = '".$user_id."'";
+    $result = $conn->query($sql) or die(mysqli_error($conn));
+    $row = $result->fetch_assoc(); 
 
-  try {
-  
-  include("$path2root/assets/inc/title.inc.php"); 
+    try {
+    
+    include("$path2root/assets/inc/title.inc.php"); 
 ?>
 <!doctype html>
 <html>
