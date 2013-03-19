@@ -1,2 +1,6 @@
+## General
+- Generate email to be sent on Sign-up
+- Submit sign-up form with jQuery AJAX
+
 ## User Pages
 - Finish Setting up Public/Private Profile option
