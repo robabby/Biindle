@@ -50,7 +50,7 @@
           echo '</ul>';
         }
         ?>
-        <form id="form1" method="post" action="">
+        <form id="sign_up" method="post" action="">
           <p>
             <label for="username">Username:</label>
             <input name="username" type="text" id="username">
@@ -76,7 +76,7 @@
             <input name="email" type="text" id="email">
           </p>
           <p>
-            <button class="btn btn-large btn-primary" type="submit" name="register" id="register">&nbsp;&nbsp;Sign Up&nbsp;&nbsp;</button>
+            <button class="btn btn-large btn-primary" type="submit" name="register" id="register" onClick="">&nbsp;&nbsp;Sign Up&nbsp;&nbsp;</button>
           </p>
         </form>
       </div><!-- .span -->
@@ -89,6 +89,43 @@
   </div><!-- .hero-unit -->
 </div><!-- .container -->
 <?php include("$path2root/assets/inc/footer.inc.php"); ?>
+<script type="text/javascript">
+  (function($) {
+    $(document).ready(function() {
+      $('#sign_up').submit(function() {
+        var username = $('#username').val();
+        var pwd = $('#pwd').val();
+        var conf_pwd = $('#conf_pwd').val();
+        var first_name = $('#first_name').val();
+        var last_name = $('#last_name').val();
+        var email = $('#email').val();
+        console.log(username + " \n" + pwd + " \n" + conf_pwd + " \n" + first_name + " \n" + last_name + " \n" + email);
+
+        var dataString = 'originalLeadId='+originalLeadId+'&vehicleId1='+vehicleId1+'&vehicleId2='+vehicleId2+'&vehicleId3='+vehicleId3+'&vehicleId4='+vehicleId4;
+
+        $.ajax({
+          beforeSend: function() {
+            
+          },
+          type: "POST",
+          data: dataString,
+          url: "process.inc.php",
+          success: function(){
+            
+          },
+          complete: function(){
+            
+          },
+          error: function(jqXHR, textStatus, errorThrown) {
+            console.log(errorThrown);
+          }
+        }); // $.ajax()
+
+      }); // $('#sign_up').submit()
+
+    }); // $(document).ready()
+  })(jQuery);
+</script>
 </body>
 </html>
 <?php
