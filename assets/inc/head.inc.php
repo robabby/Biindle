@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width">
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 
-<title>Biindle | <?php if (isset($title)) {echo "{$title}";} ?></title>
+<title>Biindle<?php if (isset($title)) {echo " | {$title}";} ?></title>
 <meta name="description" content="Biindle | More eyes to see the world">
 
 <!-- Fonts -->
