@@ -188,7 +188,7 @@ a, a:hover {text-decoration: none;}
   display: block;
   position: relative;
   max-width: 100%;
-  margin:5px 5px 15px;
+  margin:5px auto 15px;
   border-radius: 7px;
 }
 .user-sidebar #user_menu {
