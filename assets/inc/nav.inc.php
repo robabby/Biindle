@@ -14,8 +14,8 @@
     <div class="container">
       <div class="nav-collapse">
         <ul class="nav pull-right">
-          <li <?php if ($currentPage == 'about.php') {
-            echo 'class="active"';} ?>><a href="<?php echo $path2root ?>/about.php">About</a></li>
+          <!--<li <?php if ($currentPage == 'about.php') {
+            echo 'class="active"';} ?>><a href="<?php echo $path2root ?>/about.php">About</a></li>-->
           
           <?php if(isset($_SESSION['authenticated'])) {  $user = $_SESSION['username']; ?>
           
