@@ -94,9 +94,9 @@ a, a:hover {text-decoration: none;}
   filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/img/bg.jpg', sizingMethod='scale');
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/img/bg.jpg', sizingMethod='scale')";
 }
-#home .hero-unit {
+#home .hero-unit, #home .well {
   background-color:#fff;
-  background-color:rgba(255, 255, 255, .80);
+  background-color:rgba(255, 255, 255, .90);
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, .3);
   border-radius:0px;
 }
@@ -114,6 +114,23 @@ a, a:hover {text-decoration: none;}
 }
 #home pre {
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, .8);
+}
+
+#home .carousel-wrapper {
+  padding:0 !important;
+}
+#home .carousel-wrapper .carousel {
+  position: relative;
+  margin-bottom: 0;
+  line-height: 1;
+}
+#home .carousel-wrapper .carousel .carousel-inner .item img {
+  display: block;
+  max-width: 100%;
+  margin:0 auto;
+}
+#home .carousel-wrapper .carousel-control {
+  top: 50%;
 }
 
 
