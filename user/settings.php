@@ -56,8 +56,7 @@
   }
 
   // Update Profile Image
-  if (isset($_FILES['image']['name']))
-  {
+  if (isset($_FILES['image']['name'])) {
     $saveto = "$path2root/user/images/$username.jpg";
     move_uploaded_file($_FILES['image']['tmp_name'], $saveto);
     $typeok = TRUE;
