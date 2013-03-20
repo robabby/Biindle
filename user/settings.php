@@ -17,88 +17,87 @@
   
   try {
   
-  include("$path2root/assets/inc/title.inc.php"); 
+    include("$path2root/assets/inc/title.inc.php"); 
 
-  //Update General Info
-  if (isset($_REQUEST['update_info'])) {
-    $email = trim($_REQUEST['email']);
-    $website = trim($_REQUEST['website']);
-    $about = trim($_REQUEST['about']);
-    $user = trim($_REQUEST['user']);
-    $twitter = trim($_REQUEST['twitter']);
-    include("$path2root/assets/inc/update_user.inc.php");
-  }
-
-  // Update Password
-  if (isset($_POST['update_pass'])) {
-    $password = trim($_POST['pwd']);
-    $retyped = trim($_POST['conf_pwd']);
-    include("$path2root/assets/inc/update_password.inc.php");
-  }
-
-  // Update Privacy
-  if (isset($_POST['update_privacy'])) {
-    // include the connection file
-    include("$path2root/assets/inc/connection.inc.php");
-    $conn = dbConnect('write');
-    // prepare SQL statement
-    $sql = "UPDATE users SET privacy= ? WHERE username= ?";
-    $stmt = $conn->stmt_init();
-    $stmt = $conn->prepare($sql);
-    // bind parameters and insert the details into the database
-    $stmt->bind_param('ss', $_POST['private'], $_POST['user']);
-    $stmt->execute();
-    $stmt->close();
-    if ($stmt->affected_rows == 1) {
-      $success = "<div class=\"alert alert-success\">Congratulations! You have successfully updated your profile.</div>";
-    }  else {
-      $errors[] = 'Sorry, there was a problem with the database.';
+    //Update General Info
+    if (isset($_REQUEST['update_info'])) {
+      $email = trim($_REQUEST['email']);
+      $website = trim($_REQUEST['website']);
+      $about = trim($_REQUEST['about']);
+      $user = trim($_REQUEST['user']);
+      $twitter = trim($_REQUEST['twitter']);
+      include("$path2root/assets/inc/update_user.inc.php");
     }
-  }
 
-  // Update Profile Image
-  if (isset($_FILES['image']['name'])) {
-    $saveto = "$path2root/user/images/$username.jpg";
-    move_uploaded_file($_FILES['image']['tmp_name'], $saveto);
-    $typeok = TRUE;
-    
-    switch($_FILES['image']['type']) {
-      case "image/gif":   $src = imagecreatefromgif($saveto); break;
-      case "image/jpeg":  // Both regular and progressive jpegs
-      case "image/pjpeg": $src = imagecreatefromjpeg($saveto); break;
-      case "image/png":   $src = imagecreatefrompng($saveto); break;
-      default:      $typeok = FALSE; break;
+    // Update Password
+    if (isset($_POST['update_pass'])) {
+      $password = trim($_POST['pwd']);
+      $retyped = trim($_POST['conf_pwd']);
+      include("$path2root/assets/inc/update_password.inc.php");
     }
-    
-    if ($typeok) {
-      list($w, $h) = getimagesize($saveto);
-      $max = 150;
-      $tw  = $w;
-      $th  = $h;
+
+    // Update Privacy
+    if (isset($_POST['update_privacy'])) {
+      // include the connection file
+      include("$path2root/assets/inc/connection.inc.php");
+      $conn = dbConnect('write');
+      // prepare SQL statement
+      $sql = "UPDATE users SET privacy= ? WHERE username= ?";
+      $stmt = $conn->stmt_init();
+      $stmt = $conn->prepare($sql);
+      // bind parameters and insert the details into the database
+      $stmt->bind_param('ss', $_REQUEST['private'], $_REQUEST['user']);
+      $stmt->execute();
+      $stmt->close();
+      if ($stmt->affected_rows == 1) {
+        $success = "<div class=\"alert alert-success\"><a class=\"close\" data-dismiss=\"alert\" href=\"#\">&times;</a>Congratulations! You have successfully updated your profile.</div>";
+      }  else {
+        $errors[] = '<div class=\"alert alert-error\"><a class=\"close\" data-dismiss=\"alert\" href=\"#\">&times;</a>Sorry, there was a problem with the database.</div>';
+      }
+    }
+
+    // Update Profile Image
+    if (isset($_FILES['image']['name'])) {
+      $saveto = "$path2root/user/images/$username.jpg";
+      move_uploaded_file($_FILES['image']['tmp_name'], $saveto);
+      $typeok = TRUE;
       
-      if ($w > $h && $max < $w) {
-        $th = $max / $w * $h;
-        $tw = $max;
-      } elseif ($h > $w && $max < $h) {
-        $tw = $max / $h * $w;
-        $th = $max;
-      } elseif ($max < $w) {
-        $tw = $th = $max;
+      switch($_FILES['image']['type']) {
+        case "image/gif":   $src = imagecreatefromgif($saveto); break;
+        case "image/jpeg":  // Both regular and progressive jpegs
+        case "image/pjpeg": $src = imagecreatefromjpeg($saveto); break;
+        case "image/png":   $src = imagecreatefrompng($saveto); break;
+        default:      $typeok = FALSE; break;
       }
       
-      $tmp = imagecreatetruecolor($tw, $th);
-      imagecopyresampled($tmp, $src, 0, 0, 0, 0, $tw, $th, $w, $h);
-      imageconvolution($tmp, array( // Sharpen image
-                    array(-1, -1, -1),
-                    array(-1, 16, -1),
-                    array(-1, -1, -1)
-                     ), 8, 0);
-      imagejpeg($tmp, $saveto);
-      imagedestroy($tmp);
-      imagedestroy($src);
+      if ($typeok) {
+        list($w, $h) = getimagesize($saveto);
+        $max = 150;
+        $tw  = $w;
+        $th  = $h;
+        
+        if ($w > $h && $max < $w) {
+          $th = $max / $w * $h;
+          $tw = $max;
+        } elseif ($h > $w && $max < $h) {
+          $tw = $max / $h * $w;
+          $th = $max;
+        } elseif ($max < $w) {
+          $tw = $th = $max;
+        }
+        
+        $tmp = imagecreatetruecolor($tw, $th);
+        imagecopyresampled($tmp, $src, 0, 0, 0, 0, $tw, $th, $w, $h);
+        imageconvolution($tmp, array( // Sharpen image
+                      array(-1, -1, -1),
+                      array(-1, 16, -1),
+                      array(-1, -1, -1)
+                       ), 8, 0);
+        imagejpeg($tmp, $saveto);
+        imagedestroy($tmp);
+        imagedestroy($src);
+      }
     }
-  }
-
 ?>
 <!doctype html>
 <html>
