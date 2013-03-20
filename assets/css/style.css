@@ -13,24 +13,10 @@
   font-family: 'TradeGothicLTStdBdCnNo.20';
   font-family: 'TradeGothicLTStdLight';
   
-  Delicious:
-  font-family: 'DeliciousBold';
-  font-family: 'DeliciousRoman';
-  font-family: 'DeliciousSmallCapsRegular';
-  
   Swiss:
   font-family: 'Swiss721Light';
   font-family: 'Swiss721Medium';
   font-family: 'Swiss721Bold';
-  
-  Quicksand:
-  font-family: 'QuicksandBook';
-  font-family: 'QuicksandLight';
-  
-  Sansation:
-  font-family: 'SansationBold';
-  font-family: 'SansationRegular';
-  font-family: 'SansationLight';
 
   Opaficio:
   font-family: 'opificioregular';
@@ -43,6 +29,8 @@
 * {
   -webkit-font-smoothing: antialiased;
 }
+body {font-family: 'TradeGothicLTStdLight';}
+h1, h2, h3, h4, h5, h6 {font-family: 'TradeGothicLTStdBdCnNo.20';}
 a, a:hover {text-decoration: none;}
 .well:before, .well:after { display: table; content: ""; }
 .well:after { clear: both; }
