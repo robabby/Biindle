@@ -4,3 +4,4 @@
 
 ## User Pages
 - Finish Setting up Public/Private Profile option
+- Make user profile photo dimensions larger
