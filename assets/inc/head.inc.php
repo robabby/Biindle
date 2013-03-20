@@ -12,9 +12,6 @@
 <!-- Fonts -->
 <link rel="stylesheet" href="/assets/fonts/TradeGothic/stylesheet.css">
 <link rel="stylesheet" href="/assets/fonts/Swiss/stylesheet.css">
-<link rel="stylesheet" href="/assets/fonts/Quicksand/stylesheet.css">
-<link rel="stylesheet" href="/assets/fonts/Sansation/stylesheet.css">
-<link rel="stylesheet" href="/assets/fonts/Delicious/stylesheet.css">
 <link rel="stylesheet" href="/assets/fonts/Opaficio/stylesheet.css">
 
 <!-- Styles & Frameworks -->
@@ -26,3 +23,4 @@
 
 <script src="/assets/js/libs/modernizr-2.5.3.min.js"></script>
 <script src="/assets/js/libs/jquery-1.7.1.min.js"></script>
+<script src="/assets/js/biindle.js"></script>
