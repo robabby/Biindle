@@ -1,8 +1,8 @@
 <?php
 // Page Variables
-$user = $_SESSION['username'];
-$user_id = queryUserId($user);
-$created = queryUserCreated($user);
+$username = $_SESSION['username'];
+$user_id = queryUserId($username);
+$created = queryUserCreated($username);
 
 // create database connection
 $conn = dbConnect('read');
@@ -10,28 +10,28 @@ $sql = "SELECT * FROM users WHERE user_id = '".$user_id."'";
 $result = $conn->query($sql) or die(mysqli_error($conn));
 $row = $result->fetch_assoc(); 
 
-function queryUserId($user) {   
+function queryUserId($username) {   
     require_once("connection.inc.php");     
     $conn = dbConnect('read');
-    $sql = "SELECT * FROM users WHERE username = '".$user."'";
+    $sql = "SELECT * FROM users WHERE username = '".$username."'";
     $result = $conn->query($sql) or die(mysqli_error($conn));
     $row = $result->fetch_assoc();
     return $row['user_id'];
 }
 
-function queryUserName($user) {
+function queryUserName($username) {
     require_once("connection.inc.php"); 
     $conn = dbConnect('read');
-    $sql = "SELECT * FROM users WHERE username = '".$user."'";
+    $sql = "SELECT * FROM users WHERE username = '".$username."'";
     $result = $conn->query($sql) or die(mysqli_error($conn));
     $row = $result->fetch_assoc();
     return $row['username'];
 }
 
-function queryUserCreated($user) {  
+function queryUserCreated($username) {  
     require_once("connection.inc.php");       
     $conn = dbConnect('read');
-    $sql = "SELECT * FROM users WHERE username = '".$user."'";
+    $sql = "SELECT * FROM users WHERE username = '".$username."'";
     $result = $conn->query($sql) or die(mysqli_error($conn));
     $row = $result->fetch_assoc();
     return $row['created'];
