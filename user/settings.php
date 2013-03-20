@@ -20,25 +20,26 @@
   include("$path2root/assets/inc/title.inc.php"); 
 
   //Update General Info
-  if (isset($_POST['update_info'])) {
-    $email = trim($_POST['email']);
-    $website = trim($_POST['website']);
-    $about = trim($_POST['about']);
-    $user = trim($_POST['user']);
-    require_once("$path2root/assets/inc/update_user.inc.php");
+  if (isset($_REQUEST['update_info'])) {
+    $email = trim($_REQUEST['email']);
+    $website = trim($_REQUEST['website']);
+    $about = trim($_REQUEST['about']);
+    $user = trim($_REQUEST['user']);
+    $twitter = trim($_REQUEST['twitter']);
+    include("$path2root/assets/inc/update_user.inc.php");
   }
 
   // Update Password
   if (isset($_POST['update_pass'])) {
     $password = trim($_POST['pwd']);
     $retyped = trim($_POST['conf_pwd']);
-    require_once("$path2root/assets/inc/update_password.inc.php");
+    include("$path2root/assets/inc/update_password.inc.php");
   }
 
   // Update Privacy
   if (isset($_POST['update_privacy'])) {
     // include the connection file
-    require_once("$path2root/assets/inc/connection.inc.php");
+    include("$path2root/assets/inc/connection.inc.php");
     $conn = dbConnect('write');
     // prepare SQL statement
     $sql = "UPDATE users SET privacy= ? WHERE username= ?";
@@ -140,28 +141,38 @@
           </form>
 
           <!-- Change Email Address -->
-          <form class="well form-horizontal" id="form2" method="post" action="">
-            <h4>Change your email address</h4>
-            <br />
-            <p>
-              <label for="email">Email:</label>
-              <input name="email" type="text" id="email" value="<?php echo $row['email']; ?>">
-            </p>
-            <br>
-            <h4>Provide your blog or website address</h4>
-            <p>
-              <input name="website" type="text" id="website" value="<?php echo $row['website']; ?>" placeholder="www.yoursite.com">
-            </p>
-            <br>
-            <h4>Tell us a little about yourself</h4>
-            <p>
-              <textarea name="about" id="about" rows="5"><?php echo $row['about']; ?></textarea>
-            </p>
-            <p>
-              <input type="hidden" name="user" id="user" value="<?php echo $username; ?>" />
-              <button class="btn btn-primary" type="submit" name="update_info" id="update_info">Update Settings</button>
-            </p>
-          </form>
+          <div class="well">
+            <form class="form-horizontal" id="form2" method="post" action="">
+              <h4>Change your information</h4>
+              <br />
+              <p>
+                <label for="email">Email:</label>
+                <input class="input-block-level" name="email" type="text" id="email" value="<?php echo $row['email']; ?>">
+              </p>
+              <br>
+              <p>
+                <label for="website">Blog/website address:</label>
+                <input class="input-block-level" name="website" type="text" id="website" value="<?php echo $row['website']; ?>" placeholder="www.yoursite.com">
+              </p>
+              <br>
+              <p>
+                <label for="twitter">Your Twitter Username:</label>
+                <div class="input-prepend input-xlarge">
+                  <span class="add-on">@</span>
+                  <input class="input-block-level" name="twitter" type="text" id="twitter" value="<?php echo $row['twitter']; ?>" placeholder="Twitter Username">
+                </div><!-- .input-prepend -->
+              </p>
+              <br>
+              <p>
+                <label for="about">Tell us a little about yourself:</label>
+                <textarea class="span5" name="about" id="about" rows="5"><?php echo $row['about']; ?></textarea>
+              </p>
+              <p>
+                <input type="hidden" name="user" id="user" value="<?php echo $username; ?>" />
+                <button class="btn btn-primary" type="submit" name="update_info" id="update_info">Update Settings</button>
+              </p>
+            </form>
+          </div>
 
           <!-- Update Password -->
           <form class="well form-horizontal" id="form1" method="post" action="">
