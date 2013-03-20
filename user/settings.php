@@ -72,7 +72,7 @@
       
       if ($typeok) {
         list($w, $h) = getimagesize($saveto);
-        $max = 150;
+        $max = 300;
         $tw  = $w;
         $th  = $h;
         

@@ -137,20 +137,16 @@
   </script>
   <style>
   #place {
-    display: none;
-    position: absolute;
+    display: block;
+    position: relative;
     width:100%;
-    height: 100%;
-    top:0px;
-    left:0px;
-    z-index: 0;
-    opacity: .75;
+    height: 350px;
+    opacity: 1;
   }
   </style>
 </head>
 <body id="user" onLoad="init()">
 <?php include("$path2root/assets/inc/nav.inc.php"); ?>
-<div id="place"></div>
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span3">
@@ -186,9 +182,7 @@
         <br />
       </div><!-- .well -->
       <div class="well">
-        <br>
-        <br>
-        <br>
+        <div id="place"></div>
       </div><!-- .well -->
       <div class="well">
         <br>
