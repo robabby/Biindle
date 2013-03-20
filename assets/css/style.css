@@ -73,6 +73,11 @@ a, a:hover {text-decoration: none;}
   text-decoration: none;
   background-color: #08C;
 }
+.navbar .nav li.dropdown.open > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle, .navbar .nav li.dropdown.open.active > .dropdown-toggle {
+  color: #555555;
+  background-color: #e5e5e5;
+  box-shadow:inset 0px 0px 5px rgba(0, 0, 0, .10);
+}
 .hero-unit h1 {
   font-size:32px;
 }
