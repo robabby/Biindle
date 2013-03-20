@@ -181,7 +181,7 @@ a, a:hover {text-decoration: none;}
 .user-sidebar .profile-img {
   display: block;
   position: relative;
-  max-width: 100%;
+  left:-4px;
   margin:5px auto 15px;
   border-radius: 7px;
 }
