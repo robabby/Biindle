@@ -3,6 +3,7 @@ $username = trim($_POST['username']);
 $password = trim($_POST['pwd']);
 $_SESSION['username'] = $username;
 $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
+
 // location to redirect on success
 $redirect = "/user/index.php?username=$username";
 

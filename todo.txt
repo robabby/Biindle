@@ -1,6 +1,7 @@
 ## General
-- Generate email to be sent on Sign-up
+- Generate sendEmail() to be sent on Sign-up in register_user.inc.php
 - Submit sign-up form with jQuery AJAX
+- Create var Biindle = {} Object for base of all JS objects through the site
 
 ## User Pages
 - Finish Setting up Public/Private Profile option
