@@ -88,38 +88,60 @@
     </div><!-- .row -->
   </div><!-- .hero-unit -->
 </div><!-- .container -->
+
+<!-- ### Success Modal ### -->
+<div id="login_success" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Welcome to Biindle!</h3>
+  </div>
+  <div class="modal-body">
+    <h4>Great Work!</h4>
+    <p>You are now a coveted member of the exclusive, quality driven travel website, Biindle.  Please log-in now, so you can start customizing your Biindle experience.</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <a href="log_in.php" class="btn btn-primary">Log In</a>
+  </div>
+</div>
+
 <?php include("$path2root/assets/inc/footer.inc.php"); ?>
 <script type="text/javascript">
   (function($) {
     $(document).ready(function() {
+
+      // Handle Sign-up form
       $('#sign_up').submit(function() {
-        var username = $('#username').val();
-        var pwd = $('#pwd').val();
-        var conf_pwd = $('#conf_pwd').val();
-        var first_name = $('#first_name').val();
-        var last_name = $('#last_name').val();
-        var email = $('#email').val();
+        var username = $('#username').val(),
+            pwd = $('#pwd').val(),
+            conf_pwd = $('#conf_pwd').val(),
+            first_name = $('#first_name').val(),
+            last_name = $('#last_name').val(),
+            email = $('#email').val();
+        
         console.log(username + " \n" + pwd + " \n" + conf_pwd + " \n" + first_name + " \n" + last_name + " \n" + email);
 
-        var dataString = 'originalLeadId='+originalLeadId+'&vehicleId1='+vehicleId1+'&vehicleId2='+vehicleId2+'&vehicleId3='+vehicleId3+'&vehicleId4='+vehicleId4;
+        var dataString = 'register=1&username='+username+'&pwd='+pwd+'&conf_pwd='+conf_pwd+'&first_name='+first_name+'&last_name='+last_name+'&email='+email;
 
         $.ajax({
           beforeSend: function() {
-            
+            console.log("Preparing communications...");
           },
           type: "POST",
+          url: "/assets/inc/register_user.inc.php",
           data: dataString,
-          url: "process.inc.php",
-          success: function(){
-            
+          success: function(data){
+            console.log("Success!");
           },
           complete: function(){
-            
+            $('#login_success').modal('show');
           },
           error: function(jqXHR, textStatus, errorThrown) {
-            console.log(errorThrown);
+            console.log("There appears to have been an error:\n\n"+errorThrown);
           }
         }); // $.ajax()
+
+        return false;
 
       }); // $('#sign_up').submit()
 
