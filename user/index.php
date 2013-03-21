@@ -5,15 +5,21 @@
 
   if (isset($_SESSION['username']) && isset($_SESSION['authenticated'])) {
 
+    // Set up flag and Session tracking
     $loggedin = true;
     $username = $_SESSION['username'];
     $user_id = queryUserId($username);
 
+    // Prepare $user variable
+    $user = $_SESSION['user'];
+
+    // Retrieve User Information
     $conn = dbConnect('read');
     $sql = "SELECT * FROM users WHERE user_id = '".$user_id."'";
     $result = $conn->query($sql) or die(mysqli_error($conn));
     $row = $result->fetch_assoc(); 
 
+    var_dump($user);
     try {
     
     include("$path2root/assets/inc/title.inc.php"); 
@@ -157,7 +163,7 @@
         <a class="btn btn-large question" href="#" title="#">Ask a Question</a>
         <br />
         
-        <h1 id="stats" rel="popover" data-original-title="User Stats" data-content="This can be an area to produce statisics like questions asked, vantage points acquired, or badges earned." class="firstLast"><?php echo $row['first_name'] . " " . $row['last_name'];?></h1>
+        <h1 id="stats" rel="popover" data-original-title="User Stats" data-content="This can be an area to produce statisics like questions asked, vantage points acquired, or badges earned." class="firstLast"><?php echo $user['first_name'] . " " . $user['last_name'];?></h1>
         <br />
         
         <h4>My Website</a>

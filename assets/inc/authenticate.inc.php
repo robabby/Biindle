@@ -2,6 +2,12 @@
 $username = trim($_POST['username']);
 $password = trim($_POST['pwd']);
 
+$user;
+$user_id;
+$first_name;
+$last_name;
+$email;
+
 // location to redirect on success
 $redirect = "/user/index.php?username=$username";
 
@@ -25,27 +31,35 @@ if (sha1($password . $salt) == $storedPwd) {
 
   // Query the rest of the users information
   $conn = dbConnect('read');
-  $sql = "SELECT * FROM users WHERE user_id = '".$user_id."'";
+  $sql = "SELECT * FROM users WHERE username = '".$username."'";
   $result = $conn->query($sql) or die(mysqli_error($conn));
   $row = $result->fetch_assoc(); 
 
-  if(!$row) {
-  	echo "There was an error authenticating the user";
-  } else {
-  	// get the time the session started
-    $_SESSION['start'] = time();
-    session_regenerate_id();
+  var_dump($row);
 
-    $_SESSION['username'] = $username;
-    $_SESSION['user_id'] = $row['user_id'];
-    $_SESSION['first_name'] = $row['first_name'];
-    $_SESSION['last_name'] = $row['last_name'];
-    $_SESSION['email'] = $row['email'];
-    $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
+  // Set user variables
+  $user_id = $row['user_id'];
+  $first_name = $row['first_name'];
+  $last_name = $row['last_name'];
+  $email = $row['email'];
 
-    header("Location: $redirect");
-    exit;
-  }
+	// get the time the session started
+  $_SESSION['start'] = time();
+  session_regenerate_id();
+
+  $_SESSION['username'] = $username;
+
+  $_SESSION['user'] = array(
+    "user_id" => $user_id,
+    "username" => $username,
+    "first_name" => $first_name,
+    "last_name" => $last_name,
+    "email" => $email,
+    "ip" => $_SERVER['REMOTE_ADDR']
+  );
+
+  header("Location: $redirect");
+  exit;
 } else {
   // if no match, prepare error message
   $error = 'Invalid username or password';
