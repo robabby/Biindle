@@ -27,7 +27,7 @@ function dbConnect($usertype, $connectionType = 'mysqli') {
 }
 */
 function dbConnect($usertype, $connectionType = 'mysqli') {
-  $host = '127.0.0.1';  
+  $host = '127.0.0.1';
   $db = 'biindleadmin';
   if ($usertype  == 'read') {
     $user = 'root';
