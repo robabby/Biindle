@@ -1,15 +1,9 @@
 <?php
-// Page Variables
-$username = $_SESSION['username'];
-$user_id = queryUserId($username);
-$created = queryUserCreated($username);
 
-// create database connection
-$conn = dbConnect('read');
-$sql = "SELECT * FROM users WHERE user_id = '".$user_id."'";
-$result = $conn->query($sql) or die(mysqli_error($conn));
-$row = $result->fetch_assoc(); 
-
+if(isset($_REQUEST['requestUser']) && $_REQUEST['requestUser'] == 1) {
+  $username = $_REQUEST['username'];
+  echo userJson($username);
+}
 
 // Find user_id with $username
 function queryUserId($username) {   
@@ -41,8 +35,16 @@ function queryUserCreated($username) {
   return $row['created'];
 }
 
-function userArrayJson() {
-  
+function userJson($username) {
+  require_once("connection.inc.php");       
+  $conn = dbConnect('read');
+  $sql = "SELECT user_id, username, first_name, last_name, email FROM users WHERE username = '".$username."'";
+  $result = $conn->query($sql) or die(mysqli_error($conn));
+  $row = $result->fetch_assoc();
+
+  $user = $row;
+
+  return json_encode($user);
 }
 
 // Log out and kill the $_SESSION

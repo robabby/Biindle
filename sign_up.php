@@ -122,7 +122,6 @@
         console.log(username + " \n" + pwd + " \n" + conf_pwd + " \n" + first_name + " \n" + last_name + " \n" + email);
 
         var dataString = 'register=1&username='+username+'&pwd='+pwd+'&conf_pwd='+conf_pwd+'&first_name='+first_name+'&last_name='+last_name+'&email='+email;
-        console.log(dataString);
 
         $.ajax({
           beforeSend: function() {

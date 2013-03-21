@@ -20,7 +20,7 @@
           <?php if(isset($_SESSION['authenticated'])) {  $username = $_SESSION['username']; ?>
           
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="#" class="dropdown-toggle" id="user-dropdown" data-toggle="dropdown">
               <?php 
               if (file_exists("$path2root/user/images/$username.jpg")) {
                 echo "<img class='profile-img' src='$path2root/user/images/$username.jpg' width=\"20\" height=\"20\" />&nbsp;&nbsp;$username"; 
