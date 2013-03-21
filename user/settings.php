@@ -158,7 +158,13 @@
                 <label for="twitter">Your Twitter Username:</label>
                 <div class="input-prepend input-xlarge">
                   <span class="add-on">@</span>
-                  <input class="input-block-level" name="twitter" type="text" id="twitter" value="<?php echo $row['twitter']; ?>" placeholder="Twitter Username">
+                  <input 
+                    class="input-block-level" 
+                    name="twitter" 
+                    type="text" 
+                    id="twitter" 
+                    value="<?php if(isset($row['twitter'])) echo $row['twitter']; ?>" 
+                    placeholder="Twitter Username">
                 </div><!-- .input-prepend -->
               </p>
               <br>

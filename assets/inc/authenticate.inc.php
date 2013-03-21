@@ -35,7 +35,7 @@ if (sha1($password . $salt) == $storedPwd) {
   $result = $conn->query($sql) or die(mysqli_error($conn));
   $row = $result->fetch_assoc(); 
 
-  var_dump($row);
+  //var_dump($row);
 
   // Set user variables
   $user_id = $row['user_id'];
