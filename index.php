@@ -22,7 +22,6 @@
 </head>
 <body id="home">
 <?php include("$path2root/assets/inc/nav.inc.php"); ?>
-
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="hero-unit">

@@ -41,6 +41,10 @@ function queryUserCreated($username) {
   return $row['created'];
 }
 
+function userArrayJson() {
+  
+}
+
 // Log out and kill the $_SESSION
 function logOut() {
   if (isset($_POST['logout'])) {
