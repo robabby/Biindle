@@ -3,7 +3,7 @@
   $path2root = ".";
   if (isset($_POST['login'])) {
     session_start();
-    require_once("$path2root/assets/inc/authenticate.inc.php");
+    include("$path2root/assets/inc/authenticate.inc.php");
   }
   ob_start();
   try {
