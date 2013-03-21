@@ -39,7 +39,7 @@ function dbConnect($usertype, $connectionType = 'mysqli') {
     echo "Could not connect to database" . mysql_error();
     exit('Unrecognized connection type');
   }
-  if ($connectionType == 'mysqli') {
+  if ($connectionType == 'mysqli') {  
     $result = new mysqli($host, $user, $pwd, $db) ;
     if (!$result) {
       echo "Could not connect to database" . mysql_error();
