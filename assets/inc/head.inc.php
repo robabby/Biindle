@@ -22,5 +22,4 @@
 <link rel="stylesheet" href="/assets/css/style.css">
 
 <script src="/assets/js/libs/modernizr-2.5.3.min.js"></script>
-<script src="/assets/js/libs/jquery-1.7.1.min.js"></script>
-<script src="/assets/js/biindle.js"></script>
+<script src="/assets/js/libs/jquery.min.js"></script>
