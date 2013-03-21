@@ -18,9 +18,10 @@
     $sql = "SELECT * FROM users WHERE user_id = '".$user_id."'";
     $result = $conn->query($sql) or die(mysqli_error($conn));
     $row = $result->fetch_assoc(); 
+    
     try {
-      
-      include("$path2root/assets/inc/title.inc.php"); 
+    
+    include("$path2root/assets/inc/title.inc.php"); 
 ?>
 <!doctype html>
 <html>
