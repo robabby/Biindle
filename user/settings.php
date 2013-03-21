@@ -128,7 +128,7 @@
             <h4>Update your profile image</h4>
             <br />
             <?php if (file_exists("$path2root/user/images/$username.jpg"))
-              echo "<img src='$path2root/user/images/$username.jpg' />"; ?>
+              echo "<img src='$path2root/user/images/$username.jpg' width='75' />"; ?>
             <br />
             <br />
             <label for="image">Choose an Image:</label>
