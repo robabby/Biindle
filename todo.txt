@@ -2,9 +2,12 @@
 ## General
 ##########
 
+- Login or link account with Facebook, Twitter, & Google
 - Generate sendEmail() to be sent on Sign-up in register_user.inc.php
 - Create notification system
 - Continue work on messaging system
+- Implement a Captcha for sign-up and/or log-in
+- Build 'questions' database
 
 [x] Submit sign-up form with jQuery AJAX
 [x] Create var Biindle = {} Object for base of all JS objects through the site
