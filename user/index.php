@@ -253,11 +253,17 @@
       <p>
         <textarea class="span6" name="body" id="body" placeholder="Please elaborate..." rows="5"></textarea>
       </p>
+      <p>
+        <div class="input-prepend">
+          <a href="#" class="btn"><i class="icon-plus-sign"></i></a>
+          <input type="text" class="span4" placeholder="Tag your friends">
+        </div>
+      </p>
     </form>
   </div>
   <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    <button class="btn btn-primary">Save changes</button>
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+    <button class="btn btn-primary">Submit</button>
   </div>
 </div>
 
