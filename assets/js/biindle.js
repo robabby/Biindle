@@ -1,52 +1,29 @@
-var Biindle = {};
+var Biindle = {
+	user : {}
+};
 
+// Check for the #user-dropdown, then 
+// gather the username from that element 
+// to query user information
 if($("#user-dropdown").length) {
-
 	var username = $("#user-dropdown").text().trim();
-
 	var dataString = "requestUser=1&username="+username;
-
 	$.ajax({
-		beforeSend: function() {
-		    
-		},
-		type: "POST",
-		contentType: "application/json; charset=utf-8",
-        dataType: "json",
+		type: "GET",
 		url: "/assets/inc/user_funcs.inc.php",
 		data: dataString,
+        contentType: "application/json; charset=utf-8",
+		dataType: "json",
 		success: function(data){
-		    if(data.length) {
-		    	console.log(data);
-	            for(i = 0 ; i < data.length; i++) {
-
-	            	console.log(data[i]);
-
-	            	// We don't need username, because we set that earlier
-	            	var user_id = data[i].user_id;
-	            	var first_name = data[i].first_name;
-	            	var last_name = data[i].last_name;
-	            	var email = data[i].email;
-	            	var ipAddress = data[i].ip;
-	            }
-
-	            console.log(ipAddress);
-
-	            return user_id, first_name, last_name, email, ipAddress;
-	        }
-		},
-		complete: function(){
-		    
+		    console.log(data);
+        	Biindle.user.user_id = data.user_info[0]['user_id'];
+        	Biindle.user.username = data.user_info[0]['username'];
+        	Biindle.user.first_name = data.user_info[0]['first_name'];
+        	Biindle.user.last_name = data.user_info[0]['last_name'];
+        	Biindle.user.email = data.user_info[0]['email'];
 		},
 		error: function(jqXHR, textStatus, errorThrown) {
 		    console.log("There appears to have been an error:\n\n"+errorThrown);
 		}
 	}); // $.ajax()
-
-	Biindle.user = {
-		username : "",
-		first_name : "",
-		last_name : "",
-		email : ""
-	}
 }

@@ -35,6 +35,7 @@ function queryUserCreated($username) {
   return $row['created'];
 }
 
+// Deliver a JSON output of user details
 function userJson($username) {
   require_once("connection.inc.php");       
   $conn = dbConnect('read');
@@ -42,7 +43,9 @@ function userJson($username) {
   $result = $conn->query($sql) or die(mysqli_error($conn));
   $row = $result->fetch_assoc();
 
-  $user = $row;
+  $user = array(
+    "user_info" => array($row)
+  );
 
   return json_encode($user);
 }

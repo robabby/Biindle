@@ -227,12 +227,54 @@
     </div><!-- .span9 -->
   </div><!-- row -->
 </div><!-- .container -->
+
+<!-- Question Modal -->
+<div id="ask-question" class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Have a Question?</h3>
+  </div>
+  <div class="modal-body">
+    <p>Ask the Biindle community.</p>
+    <form action="" method="">
+      <p>
+        <label for="topic">What Subject:</label>
+        <select name="topic">
+          <option>Make a Selection</option>
+          <option value="#">Topic 1</option>
+          <option value="#">Topic 2</option>
+          <option value="#">Topic 3</option>
+        </select>
+      </p>
+      <p>
+        <label for="title">What's on your mind?</label>
+        <input type="text" name="title" id="title" placeholder="Title your question" />
+      </p>
+      <p>
+        <textarea class="span6" name="body" id="body" placeholder="Please elaborate..." rows="5"></textarea>
+      </p>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary">Save changes</button>
+  </div>
+</div>
+
 <?php include("$path2root/assets/inc/footer.inc.php"); ?>
 <script>
+(function($) {
+  // Popover on name click
   $('#stats').popover({
     animation: true,
     placement: 'bottom'
   });
+
+  // Question Modal
+  $('.question').on('click', function() {
+    $('#ask-question').modal('show');
+  });
+})(jQuery);
 </script>
 </body>
 </html>
