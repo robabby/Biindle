@@ -1,8 +1,18 @@
+##########
 ## General
-- Generate sendEmail() to be sent on Sign-up in register_user.inc.php
-[x] Submit sign-up form with jQuery AJAX
-- Create var Biindle = {} Object for base of all JS objects through the site
+##########
 
+- Generate sendEmail() to be sent on Sign-up in register_user.inc.php
+- Create notification system
+- Continue work on messaging system
+
+[x] Submit sign-up form with jQuery AJAX
+[x] Create var Biindle = {} Object for base of all JS objects through the site
+
+#############
 ## User Pages
+#############
+
 - Finish Setting up Public/Private Profile option
-- Make user profile photo dimensions larger
+
+[x] Make user profile photo dimensions larger
