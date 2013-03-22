@@ -30,15 +30,18 @@ if($("#user-dropdown").length) {
 
 // Begin Biindle notification system
 /*
-setInterval(function() {
-$.get("file.php", { userid: "userid" },
-	function(data){
-		if (data > old_count) {
-			alert("the list is updated with: " + data);
-			//OR
-			//console.log('the list is updated with:' + data);
-			old_count = data;
-		}
-	 }
-)},5000); // every 5 seconds
+var old_count = 0;
+
+setInterval(function(){    
+    $.ajax({
+        type : "POST",
+        url : "file.php",
+        success : function(data){
+            if (data > old_count) {
+                alert('new record on i_case');
+                old_count = data;
+            }
+        }
+    });
+},1000);
 */

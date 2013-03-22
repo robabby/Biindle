@@ -50,6 +50,15 @@ function userJson($username) {
   return json_encode($user);
 }
 
+function userNotifications() {
+  // Got this script from StackOverflow.
+  // Modify as necessary
+  $sql = "SELECT count(*) as count FROM i_case";
+  $qry = pg_query($connection, $sql);
+  $row = pg_fetch_assoc($qry);
+  echo $row['count'];
+}
+
 // Log out and kill the $_SESSION
 function logOut() {
   if (isset($_POST['logout'])) {
