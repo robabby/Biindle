@@ -6,7 +6,7 @@ var Biindle = {
 // gather the username from that element 
 // to query user information
 if($("#user-dropdown").length) {
-	var username = $("#user-dropdown").text().trim();
+	var username = $("#user-dropdown").find('.dropdown-toggle').text().trim();
 	var dataString = "requestUser=1&username="+username;
 	$.ajax({
 		type: "GET",

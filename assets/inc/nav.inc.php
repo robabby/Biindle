@@ -19,8 +19,18 @@
           
           <?php if(isset($_SESSION['authenticated'])) {  $username = $_SESSION['username']; ?>
           
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" id="user-dropdown" data-toggle="dropdown">
+          <li id="notifications" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="icon-globe"></i>
+              <span class="badge badge-important">1</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="#" title="#">You Have a notification</a></li>
+            </ul>
+          </li>
+          
+          <li id="user-dropdown" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <?php 
               if (file_exists("$path2root/user/images/$username.jpg")) {
                 echo "<img class='profile-img' src='$path2root/user/images/$username.jpg' width=\"20\" height=\"20\" />&nbsp;&nbsp;$username"; 
