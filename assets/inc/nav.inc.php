@@ -21,7 +21,7 @@
           
           <li id="notifications" class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="icon-globe"></i>
+              <i class="icon-bell"></i>
               <span class="badge badge-important">1</span>
             </a>
             <ul class="dropdown-menu">
@@ -42,7 +42,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><a href="<?php echo "$path2root"; ?>/user/index.php?username=<?php echo $username; ?>" title="#"><i class="icon-home"></i> Profile</a></li>
-              <li><a href="#" title="#"><i class="icon-fire"></i> Feeds</a></li>
+              <li><a href="#" title="#"><i class="icon-fire"></i> Activity Feed</a></li>
               <li><a href="#" title="#"><i class="icon-th"></i> Apps</a></li>
               <li><a href="<?php echo "$path2root"; ?>/user/inbox/index.php?username=<?php echo $username; ?>" title="#"><i class="icon-inbox"></i> Inbox</a></li>
               <li><a href="/user/members.php?username=<?php echo $username; ?>"><i class="icon-user"></i> Members</a></li>
