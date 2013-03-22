@@ -27,3 +27,18 @@ if($("#user-dropdown").length) {
 		}
 	}); // $.ajax()
 }
+
+// Begin Biindle notification system
+/*
+setInterval(function() {
+$.get("file.php", { userid: "userid" },
+	function(data){
+		if (data > old_count) {
+			alert("the list is updated with: " + data);
+			//OR
+			//console.log('the list is updated with:' + data);
+			old_count = data;
+		}
+	 }
+)},5000); // every 5 seconds
+*/
