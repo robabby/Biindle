@@ -197,8 +197,6 @@ a, a:hover {text-decoration: none;}
 .user-sidebar #user_menu {
   padding:10px 0 10px 0;
   margin:5px;
-  border-top:5px solid #ccc;
-  border-bottom:5px solid #ccc;
 }
 
 #user #stats {
