@@ -22,7 +22,7 @@
 </head>
 <body id="home">
 <?php include("$path2root/assets/inc/nav.inc.php"); ?>
-<div class="container-fluid">
+<div class="container">
   <div class="row-fluid">
     <div class="hero-unit">
       <h1>More eyes to see the world</h1>
