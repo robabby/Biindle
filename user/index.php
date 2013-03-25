@@ -251,7 +251,7 @@
         <input type="text" name="title" id="title" placeholder="Title your question" />
       </p>
       <p>
-        <textarea class="span6" name="body" id="body" placeholder="Please elaborate..." rows="5"></textarea>
+        <textarea class="span4" name="body" id="body" placeholder="Please elaborate..." rows="5"></textarea>
       </p>
       <p>
         <div class="input-prepend">
