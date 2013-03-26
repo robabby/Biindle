@@ -138,7 +138,7 @@
       $('#drawer-toggle').on('click', function() {
         if(!menuStatus) {
           $("#wrapper").animate({
-            marginLeft: "165px",
+            marginLeft: "200px",
           }, 300, function(){menuStatus = true});
           return false;
           } else {
