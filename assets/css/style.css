@@ -30,7 +30,13 @@
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-body {font-family: 'TradeGothicLTStdLight';}
+body, html {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+body {font-family: 'TradeGothicLTStdLight'; overflow-x:hidden;}
 h1, h2, h3, h4, h5, h6 {font-family: 'TradeGothicLTStdBdCnNo.20';}
 a, a:hover {text-decoration: none;}
 .well:before, .well:after { display: table; content: ""; }
@@ -49,7 +55,7 @@ a, a:hover {text-decoration: none;}
   font-family: 'SansationRegular';
 }
 
-.navbar .site-nav-toggle {
+.navbar #drawer-toggle {
   float: left;
   vertical-align: middle;
   margin-left:20px;
@@ -89,10 +95,6 @@ a, a:hover {text-decoration: none;}
   box-shadow:inset 0px 0px 5px rgba(0, 0, 0, .10);
 }
 
-#main-container {
-  padding-top:65px;
-}
-
 .hero-unit h1 {
   font-size:32px;
 }
@@ -101,11 +103,34 @@ a, a:hover {text-decoration: none;}
   box-shadow:0px 3px 7px 1px rgba(0, 0, 0, .25);
 }
 
+/* ==|== Menu Drawer
+================================================================================================================= */
+
+#wrapper {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-top:65px;
+  background-color: #fff;
+}
+
+#menu-drawer {
+  display: block;
+  position: absolute;
+  width: 200px;
+  height:100%;
+  background-color:#555;
+  box-shadow: inset 0px 0px 10px 1px rgba(0, 0, 0, .6);
+  z-index: 0;
+}
+
 
 /* ==|== Home Page 
 ================================================================================================================= */
 
 #home { 
+  /*
   background: url('/img/bg.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -113,6 +138,7 @@ a, a:hover {text-decoration: none;}
   background-size: cover;
   filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/img/bg.jpg', sizingMethod='scale');
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/img/bg.jpg', sizingMethod='scale')";
+  */
 }
 #home .hero-unit, #home .well {
   background-color:#fff;

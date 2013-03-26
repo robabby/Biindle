@@ -10,7 +10,7 @@
       <span class="icon-bar"></span>
     </a>
 
-    <a class="btn site-nav-toggle" href="#"><i class="icon-th-large"></i></a>
+    <a id="drawer-toggle" class="btn" href="#"><i class="icon-th-large"></i></a>
     
     <a class="brand" href="/">
       <img src="<?php echo $path2root; ?>/img/logo_inverted.png" alt="" width="53" />
