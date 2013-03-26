@@ -32,7 +32,7 @@
 </head>
 <body id="home">
 <?php include("$path2root/assets/inc/nav.inc.php"); ?>
-<div class="container">
+<div id="main-container" class="container">
 
   <?php if (isset($_SESSION['authenticated'])) { ?>
 
