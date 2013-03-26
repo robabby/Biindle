@@ -37,11 +37,24 @@ a, a:hover {text-decoration: none;}
 .well:after { clear: both; }
 .hero-unit, .well {position: relative;}
 .navbar-inner, .navbar .dropdown-menu, .hero-unit, .well, .btn { border-radius:0; }
-.navbar { position: relative; z-index: 9999; }
+.navbar { z-index: 9999; margin-bottom: 0;}
 .navbar .brand {
-  margin:0 0 0 -10px;
+  display: block;
+  position: absolute;
+  width: 53px;
+  left:50%;
+  margin-left:-46px;
+  right:0;
+  float: none;
   font-family: 'SansationRegular';
 }
+
+.navbar .site-nav-toggle {
+  float: left;
+  vertical-align: middle;
+  margin-left:20px;
+}
+
 .navbar .nav {
   margin:0;
 }
@@ -75,6 +88,11 @@ a, a:hover {text-decoration: none;}
   background-color: #e5e5e5;
   box-shadow:inset 0px 0px 5px rgba(0, 0, 0, .10);
 }
+
+#main-container {
+  padding-top:65px;
+}
+
 .hero-unit h1 {
   font-size:32px;
 }

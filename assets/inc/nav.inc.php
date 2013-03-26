@@ -1,16 +1,21 @@
 <?php $currentPage = basename($_SERVER['SCRIPT_FILENAME']); ?>
 
-<div class="navbar">
+<div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
+    
     <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
     <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </a>
+
+    <a class="btn site-nav-toggle" href="#"><i class="icon-th-large"></i></a>
+    
     <a class="brand" href="/">
       <img src="<?php echo $path2root; ?>/img/logo_inverted.png" alt="" width="53" />
     </a>
+    
     <div class="container">
       <div class="nav-collapse">
         <ul class="nav pull-right">
