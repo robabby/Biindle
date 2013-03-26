@@ -2,6 +2,12 @@
   $path2root = ".";
   session_start();
   ob_start();
+  
+  if (isset($_POST['login'])) {
+    session_start();
+    include("$path2root/assets/inc/authenticate.inc.php");
+  }
+
   if (isset($_SESSION['authenticated'])) {
     include("$path2root/assets/inc/user_funcs.inc.php");
     $username = $_SESSION['username'];
@@ -19,16 +25,35 @@
 <html>
 <head>
   <?php include("$path2root/assets/inc/head.inc.php"); ?>
+  <script src="/assets/js/jquery.isotope.min.js"></script>
+  <style>
+
+  </style>
 </head>
 <body id="home">
 <?php include("$path2root/assets/inc/nav.inc.php"); ?>
 <div class="container">
+
+  <?php if (isset($_SESSION['authenticated'])) { ?>
+
+  <div id="isotope" class="row-fluid">
+    <div class="well item">
+      <br>
+    </div>
+    <div class="well item">
+      <br>
+    </div>
+    <div class="well item">
+      <br>
+    </div>
+  </div><!-- .row-fluid -->
+
+  <?php } else { ?>
+
   <div class="row-fluid">
     <div class="hero-unit">
       <h1>More eyes to see the world</h1>
-      <br />
-      <br />
-      <a class="btn btn-large btn-primary" href="sign_up.php" title="#">Sign Up Now</a>
+      <!--<a class="btn btn-large btn-primary" href="sign_up.php" title="#">Sign Up Now</a>-->
     </div><!-- .hero-unit -->
   </div><!-- .row-fluid -->
   <div class="row-fluid">
@@ -73,6 +98,30 @@
       </div>
     </div><!-- .span6 -->
   </div><!-- .row-fluid -->
+  <div id="login-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">Welcome to Biindle!</h3>
+    </div>
+    <div class="modal-body">
+      <form id="form1" method="post" action="">
+        <p>
+          <label for="username">Username:</label>
+          <input type="text" name="username" id="username" value="">
+        </p>
+        <p>
+          <label for="pwd">Password:</label>
+          <input type="password" name="pwd" id="pwd">
+        </p>
+        <p>
+          <input class="btn btn-large" name="login" type="submit" id="login" value="Log in">
+        </p>
+      </form>
+    </div>
+  </div><!-- #login-modal -->
+
+  <?php } ?>
+
 </div><!-- .container -->
 
 <?php include("$path2root/assets/inc/footer.inc.php"); ?>
@@ -81,6 +130,10 @@
     $(document).ready(function() {
       $('.carousel').carousel({
         //interval: 2000
+      });
+
+      $('.login-trigger').on('click', function() {
+        $('#login-modal').modal('show');
       });
     }) // document.ready
   })(jQuery)

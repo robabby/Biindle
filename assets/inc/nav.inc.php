@@ -59,7 +59,7 @@
           
           <li <?php if ($currentPage == 'log_in.php') {
             echo 'class="active"';} ?>>
-            <a href="<?php echo $path2root ?>/log_in.php">Log In/Sign Up</a>
+            <a class="login-trigger" href="#">Log In</a>
           </li>
           
           <?php } ?>

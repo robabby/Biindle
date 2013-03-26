@@ -9,7 +9,7 @@ $last_name;
 $email;
 
 // location to redirect on success
-$redirect = "/user/index.php?username=$username";
+$redirect = "/";
 
 require_once('connection.inc.php');
 $conn = dbConnect('read');
