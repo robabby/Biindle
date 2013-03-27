@@ -47,6 +47,57 @@
         <div class="well">
           <br>
         </div>
+        <div class="well">
+          <br>
+        </div>
+        <div class="well">
+          <br>
+        </div>
+        <div class="well">
+          <br>
+        </div>
+        <div class="well">
+          <br>
+        </div>
+        <div class="well">
+          <br>
+        </div>
+        <div class="well">
+          <br>
+        </div>
+        <div class="well">
+          <br>
+        </div>
+        <div class="well">
+          <br>
+        </div>
+        <div class="well">
+          <br>
+        </div>
+        <div class="well">
+          <br>
+        </div>
+        <div class="well">
+          <br>
+        </div>
+        <div class="well">
+          <br>
+        </div>
+        <div class="well">
+          <br>
+        </div>
+        <div class="well">
+          <br>
+        </div>
+        <div class="well">
+          <br>
+        </div>
+        <div class="well">
+          <br>
+        </div>
+        <div class="well">
+          <br>
+        </div>
       </div><!-- .row-fluid -->
 
     </div><!-- .container-fluid -->
@@ -133,6 +184,7 @@
 <script type="text/javascript">
   (function($) {
     $(document).ready(function() {
+      // Handle Menu Drawer
       var menuStatus;
 
       $('#drawer-toggle').on('click', function() {
@@ -149,10 +201,19 @@
         }
       });
 
+      // Custon Scrollbars
+      $('#wrapper').jScrollPane();
+      $('#wrapper').bind('mousewheel', function(event, delta, deltaX, deltaY) {
+          console.log(delta, deltaX, deltaY);
+      });
+      
+
+      // Trigger Photographers Corner Carousel
       $('.carousel').carousel({
         //interval: 2000
       });
 
+      // Show login modal
       $('.login-trigger').on('click', function() {
         $('#login-modal').modal('show');
       });

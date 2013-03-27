@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="/assets/css/bootstrap.css">
 <link rel="stylesheet" href="/assets/css/bootstrap-responsive.css">
 <link rel="stylesheet" href="/assets/css/animate.css">
+<link rel="stylesheet" href="/assets/css/jscrollpane.css">
 <link rel="stylesheet" href="/assets/css/style.css">
 
 <script src="/assets/js/libs/modernizr-2.5.3.min.js"></script>
