@@ -43,60 +43,76 @@
   
     <div class="container-fluid">
 
+      <div class="btn-toolbar">
+        <div id="filters" class="btn-group">
+          <a class="btn" href="#" data-filter="*">Show All</a>
+          <a class="btn" href="#" data-filter=".question">Questions</a>
+          <a class="btn" href="#" data-filter=".tip">Tips</a>
+          <a class="btn" href="#" data-filter=".check-in">Check-ins</a>
+          <a class="btn" href="#" data-filter=".review">Reviews</a>
+        </div>
+      </div>
+
       <div id="isotope" class="row-fluid">
-        <div class="well">
-          <br>
+        <div class="item question">
+          <h2>Item</h2>
         </div>
-        <div class="well">
-          <br>
+        <div class="item tip">
+          <h2>Item</h2>
         </div>
-        <div class="well">
-          <br>
+        <div class="item check-in">
+          <h2>Item</h2>
         </div>
-        <div class="well">
-          <br>
+        <div class="item review">
+          <h2>Item</h2>
         </div>
-        <div class="well">
-          <br>
+        <div class="item question">
+          <h2>Item</h2>
         </div>
-        <div class="well">
-          <br>
+        <div class="item tip">
+          <h2>Item</h2>
         </div>
-        <div class="well">
-          <br>
+        <div class="item check-in">
+          <h2>Item</h2>
         </div>
-        <div class="well">
-          <br>
+        <div class="item review">
+          <h2>Item</h2>
         </div>
-        <div class="well">
-          <br>
+        <div class="item question">
+          <h2>Item</h2>
         </div>
-        <div class="well">
-          <br>
+        <div class="item tip">
+          <h2>Item</h2>
         </div>
-        <div class="well">
-          <br>
+        <div class="item check-in">
+          <h2>Item</h2>
         </div>
-        <div class="well">
-          <br>
+        <div class="item review">
+          <h2>Item</h2>
         </div>
-        <div class="well">
-          <br>
+        <div class="item question">
+          <h2>Item</h2>
         </div>
-        <div class="well">
-          <br>
+        <div class="item tip">
+          <h2>Item</h2>
         </div>
-        <div class="well">
-          <br>
+        <div class="item check-in">
+          <h2>Item</h2>
         </div>
-        <div class="well">
-          <br>
+        <div class="item review">
+          <h2>Item</h2>
         </div>
-        <div class="well">
-          <br>
+        <div class="item question">
+          <h2>Item</h2>
         </div>
-        <div class="well">
-          <br>
+        <div class="item tip">
+          <h2>Item</h2>
+        </div>
+        <div class="item check-in">
+          <h2>Item</h2>
+        </div>
+        <div class="item review">
+          <h2>Item</h2>
         </div>
       </div><!-- .row-fluid -->
 
@@ -206,8 +222,20 @@
         }
       });
 
-      // Custon Scrollbars
-      //$('#wrapper').jScrollPane();
+      // Isotope functionality
+      var $container = $('#isotope');
+
+      $container.isotope({
+        // options
+        itemSelector : '.item',
+        layoutMode : 'fitRows'
+      });
+
+      $('#filters a').click(function(){
+        var selector = $(this).attr('data-filter');
+        $container.isotope({ filter: selector });
+        return false;
+      });
       
       // Trigger Photographers Corner Carousel
       $('.carousel').carousel({
@@ -219,16 +247,8 @@
         $('#login-modal').modal('show');
       });
 
-      var $el = $('#wrapper').jScrollPane({
-          verticalGutter  : -10
-      });
-           
-      // the jScrollPane instance
-      jspapi = $el.data('jsp');
-           
-      // extend the jScollPane by merging 
-      $.extend( true, jspapi, extensionPlugin );
-      jspapi.addHoverFunc();
+      // CUstom Scroll Bar
+      // $('#wrapper').jScrollPane({ verticalGutter  : -10 });
 
     }) // document.ready
   })(jQuery)
