@@ -45,27 +45,33 @@
 
       <div class="btn-toolbar">
         <div id="filters" class="btn-group">
-          <a class="btn" href="#" data-filter="*">Show All</a>
+          <a class="btn btn-primary" href="#" data-filter="*">Show All</a>
           <a class="btn" href="#" data-filter=".question">Questions</a>
           <a class="btn" href="#" data-filter=".tip">Tips</a>
           <a class="btn" href="#" data-filter=".check-in">Check-ins</a>
           <a class="btn" href="#" data-filter=".review">Reviews</a>
+        </div>
+        <div id="sorty-by" class="btn-group">
+          <a class="btn" href="#title">Title</a>
+          <a class="btn" href="#date">Date</a>
+          <a class="btn" href="#distance">Distance</a>
+          <a class="btn" href="#views">Views</a>
         </div>
       </div>
 
       <div id="isotope" class="row-fluid">
         <div class="item question">
           <h2>Item</h2>
-        </div>
+        </div><!-- .item -->
         <div class="item tip">
           <h2>Item</h2>
-        </div>
+        </div><!-- .item -->
         <div class="item check-in">
           <h2>Item</h2>
-        </div>
+        </div><!-- .item -->
         <div class="item review">
           <h2>Item</h2>
-        </div>
+        </div><!-- .item -->
         <div class="item question">
           <h2>Item</h2>
         </div>
