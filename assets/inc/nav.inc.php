@@ -9,7 +9,7 @@
     
     <div class="container-fluid">      
 
-      <a id="drawer-toggle" class="btn" href="#"><i class="icon-th-large"></i></a>
+      <a id="drawer-toggle" class="btn" href="#"><i class="icon-th-list"></i></a>
       <ul class="nav pull-right">
         <!--<li <?php if ($currentPage == 'about.php') {
           echo 'class="active"';} ?>><a href="<?php echo $path2root ?>/about.php">About</a></li>-->

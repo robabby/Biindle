@@ -188,26 +188,27 @@
       var menuStatus;
 
       $('#drawer-toggle').on('click', function() {
+        var self = this;
         if(!menuStatus) {
-          $("#wrapper").animate({
-            marginLeft: "200px",
-          }, 300, function(){menuStatus = true});
+          $("#wrapper").animate({marginLeft: "200px"}, 300, function(){
+            menuStatus = true
+            $('#drawer-toggle').addClass('btn-danger');
+            $('#drawer-toggle').find('i').removeClass('icon-th-list').addClass('icon-remove icon-white');
+          });
           return false;
-          } else {
-            $("#wrapper").animate({
-            marginLeft: "0px",
-          }, 300, function(){menuStatus = false});
-            return false;
+        } else {
+          $("#wrapper").animate({marginLeft: "0px"}, 300, function(){
+            menuStatus = false
+            $('#drawer-toggle').removeClass('btn-danger');
+            $('#drawer-toggle').find('i').removeClass('icon-remove icon-white').addClass('icon-th-list');
+          });
+          return false;
         }
       });
 
       // Custon Scrollbars
-      $('#wrapper').jScrollPane();
-      $('#wrapper').bind('mousewheel', function(event, delta, deltaX, deltaY) {
-          console.log(delta, deltaX, deltaY);
-      });
+      //$('#wrapper').jScrollPane();
       
-
       // Trigger Photographers Corner Carousel
       $('.carousel').carousel({
         //interval: 2000
@@ -217,6 +218,18 @@
       $('.login-trigger').on('click', function() {
         $('#login-modal').modal('show');
       });
+
+      var $el = $('#wrapper').jScrollPane({
+          verticalGutter  : -10
+      });
+           
+      // the jScrollPane instance
+      jspapi = $el.data('jsp');
+           
+      // extend the jScollPane by merging 
+      $.extend( true, jspapi, extensionPlugin );
+      jspapi.addHoverFunc();
+
     }) // document.ready
   })(jQuery)
 </script>
