@@ -95,11 +95,11 @@
           <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et lacus mauris, eu luctus nisl. Vestibulum ornare tellus eget nibh porta condimentum. Morbi tincidunt, nunc sed scelerisque dignissim, mauris lacus viverra enim, at consectetur tellus lacus euismod odio.</p>
           <div class="media">
             <a class="pull-left" href="#">
-              <img class="media-object" data-src="http://placehold.it/350x150" src="http://placehold.it/64x64">
+              <img class="media-object" data-src="http://placehold.it/350x150" src="http://placehold.it/32x32">
             </a>
             <div class="media-body">
               <h4 class="media-heading">Media heading</h4>
-              ...
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
            
               <!-- Nested media object -->
               <div class="media">
@@ -282,7 +282,6 @@
       $('#sort-by a').click(function(){
         // get href attribute, minus the '#'
         var sortName = $(this).attr('href').slice(1);
-        console.log(sortName);
         $container.isotope({ sortBy : sortName });
         return false;
       });
