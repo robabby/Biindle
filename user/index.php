@@ -151,82 +151,84 @@
   </style>
 </head>
 <body id="user" onLoad="init()">
-<?php include("$path2root/assets/inc/nav.inc.php"); ?>
-<div class="container-fluid">
-  <div class="row-fluid">
-    <div class="span3">
-      <?php include("$path2root/assets/inc/user_menu.inc.php"); ?>
-    </div>
-    <div class="span9">
-      <div class="well">
-        <a class="btn btn-large question" href="#" title="#">Ask a Question</a>
-        <br />
-        
-        <h1 id="stats" rel="popover" data-original-title="User Stats" data-content="This can be an area to produce statisics like questions asked, vantage points acquired, or badges earned." class="firstLast"><?php echo $user['first_name'] . " " . $user['last_name'];?></h1>
-        <br />
-        
-        <h4>My Website</a>
+<div id="wrapper">
+  <?php include("$path2root/assets/inc/nav.inc.php"); ?>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span3">
+        <?php include("$path2root/assets/inc/user_menu.inc.php"); ?>
+      </div>
+      <div class="span9">
+        <div class="well">
+          <a class="btn btn-large question" href="#" title="#">Ask a Question</a>
           <br />
-        <a target="_blank" href="<?php echo $row['website']; ?>" title="<?php echo $row['first_name']; ?>'s Website">
-          <?php echo $row['website']; ?>
-        </a>
-        <br />
-        <br />
-        
-        <h4>My Email</a>
+          
+          <h1 id="stats" rel="popover" data-original-title="User Stats" data-content="This can be an area to produce statisics like questions asked, vantage points acquired, or badges earned." class="firstLast"><?php echo $user['first_name'] . " " . $user['last_name'];?></h1>
           <br />
-          <a href="mailto:<?php echo $row['email']; ?>" title="<?php echo $row['first_name']; ?>'s Email">
-          <?php echo $row['email']; ?>
-        </a>
-        <br />
-        <br />
-        
-        <h4>About Me</h4>
-        
-        <p><?php echo $row['about']; ?></p>
-        <br />
-      </div><!-- .well -->
-      <div class="well">
-        <div id="place"></div>
-      </div><!-- .well -->
-      <div class="well">
-        <br>
-        <br>
-        <br>
-      </div><!-- .well -->
-      <div class="well">
-        <br>
-        <br>
-        <br>
-      </div><!-- .well -->
-      <div class="well">
-        <br>
-        <br>
-        <br>
-      </div><!-- .well -->
-      <div class="well">
-        <br>
-        <br>
-        <br>
-      </div><!-- .well -->
-      <div class="well">
-        <br>
-        <br>
-        <br>
-      </div><!-- .well -->
-      <div class="well">
-        <br>
-        <br>
-        <br>
-      </div><!-- .well -->
-      <div class="well">
-        <br>
-        <br>
-        <br>
-      </div><!-- .well -->
-    </div><!-- .span9 -->
-  </div><!-- row -->
-</div><!-- .container -->
+          
+          <h4>My Website</a>
+            <br />
+          <a target="_blank" href="<?php echo $row['website']; ?>" title="<?php echo $row['first_name']; ?>'s Website">
+            <?php echo $row['website']; ?>
+          </a>
+          <br />
+          <br />
+          
+          <h4>My Email</a>
+            <br />
+            <a href="mailto:<?php echo $row['email']; ?>" title="<?php echo $row['first_name']; ?>'s Email">
+            <?php echo $row['email']; ?>
+          </a>
+          <br />
+          <br />
+          
+          <h4>About Me</h4>
+          
+          <p><?php echo $row['about']; ?></p>
+          <br />
+        </div><!-- .well -->
+        <div class="well">
+          <div id="place"></div>
+        </div><!-- .well -->
+        <div class="well">
+          <br>
+          <br>
+          <br>
+        </div><!-- .well -->
+        <div class="well">
+          <br>
+          <br>
+          <br>
+        </div><!-- .well -->
+        <div class="well">
+          <br>
+          <br>
+          <br>
+        </div><!-- .well -->
+        <div class="well">
+          <br>
+          <br>
+          <br>
+        </div><!-- .well -->
+        <div class="well">
+          <br>
+          <br>
+          <br>
+        </div><!-- .well -->
+        <div class="well">
+          <br>
+          <br>
+          <br>
+        </div><!-- .well -->
+        <div class="well">
+          <br>
+          <br>
+          <br>
+        </div><!-- .well -->
+      </div><!-- .span9 -->
+    </div><!-- row -->
+  </div><!-- .container -->
+</div><!-- #wrapper -->
 
 <!-- Question Modal -->
 <div id="ask-question" class="modal hide fade">

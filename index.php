@@ -34,7 +34,29 @@
 <?php include("$path2root/assets/inc/nav.inc.php"); ?>
 
 <div id="menu-drawer">
-
+  <nav>
+    <div>
+      <a href="#">Bookings</a>
+    </div>
+    <div>
+      <a href="#">My Trips</a>
+    </div>
+    <div>
+      <a href="#">My Photos</a>
+    </div>
+    <div>
+      <a href="#">My Network</a>
+    </div>
+    <div>
+      <a href="#">Countries</a>
+    </div>
+    <div>
+      <a href="#">Traveler's Cafe</a>
+    </div>
+    <div>
+      <a href="#">Charities</a>
+    </div>
+  </nav>
 </div>
 
 <div id="wrapper">
@@ -45,13 +67,15 @@
 
       <div class="btn-toolbar">
         <div id="filters" class="btn-group">
-          <a class="btn btn-primary" href="#" data-filter="*">Show All</a>
+          <a class="btn btn-primary disabled" href="#">Filter:</a>
+          <a class="btn" href="#" data-filter="*">Show All</a>
           <a class="btn" href="#" data-filter=".question">Questions</a>
           <a class="btn" href="#" data-filter=".tip">Tips</a>
           <a class="btn" href="#" data-filter=".check-in">Check-ins</a>
           <a class="btn" href="#" data-filter=".review">Reviews</a>
         </div>
         <div id="sorty-by" class="btn-group">
+          <a class="btn btn-primary disabled" href="#">Sort:</a>
           <a class="btn" href="#title">Title</a>
           <a class="btn" href="#date">Date</a>
           <a class="btn" href="#distance">Distance</a>
@@ -212,23 +236,26 @@
       $('#drawer-toggle').on('click', function() {
         var self = this;
         if(!menuStatus) {
-          $("#wrapper").animate({marginLeft: "200px"}, 300, function(){
+          $("#wrapper").animate({marginLeft: "200px"}, 300, "easeInOutCubic", function(){
             menuStatus = true
             $('#drawer-toggle').addClass('btn-danger');
             $('#drawer-toggle').find('i').removeClass('icon-th-list').addClass('icon-remove icon-white');
           });
+          $('#menu-drawer nav').animate({opacity:1});
           return false;
         } else {
-          $("#wrapper").animate({marginLeft: "0px"}, 300, function(){
+          $("#wrapper").animate({marginLeft: "0px"}, 300, "easeInOutCubic", function(){
             menuStatus = false
             $('#drawer-toggle').removeClass('btn-danger');
             $('#drawer-toggle').find('i').removeClass('icon-remove icon-white').addClass('icon-th-list');
           });
+          $('#menu-drawer nav').animate({opacity:0});
           return false;
         }
       });
 
-      // Isotope functionality
+      ////////// Isotope functionality //////////
+
       var $container = $('#isotope');
 
       $container.isotope({
@@ -254,7 +281,7 @@
       });
 
       // CUstom Scroll Bar
-      // $('#wrapper').jScrollPane({ verticalGutter  : -10 });
+      $('#menu-drawer').jScrollPane({ verticalGutter  : -10 });
 
     }) // document.ready
   })(jQuery)

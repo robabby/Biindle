@@ -8,13 +8,13 @@
     </a>
     
     <div class="container-fluid">      
-
-      <a id="drawer-toggle" class="btn" href="#"><i class="icon-th-list"></i></a>
-      <ul class="nav pull-right">
-        <!--<li <?php if ($currentPage == 'about.php') {
-          echo 'class="active"';} ?>><a href="<?php echo $path2root ?>/about.php">About</a></li>-->
         
-        <?php if(isset($_SESSION['authenticated'])) {  $username = $_SESSION['username']; ?>
+      <?php if(isset($_SESSION['authenticated'])) {  $username = $_SESSION['username']; ?>
+      
+      <!-- Drawer Toggle -->
+      <a id="drawer-toggle" class="btn" href="#"><i class="icon-th-list"></i></a>
+      
+      <ul class="nav pull-right">
         
         <li id="notifications" class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
