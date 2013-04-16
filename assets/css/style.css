@@ -134,7 +134,7 @@ a, a:hover {text-decoration: none;}
   width: 200px;
   height:100%;
   padding-top:41px;
-  background-color:#aaa;
+  background-color:#333;
   box-shadow: inset 0px 0px 10px 1px rgba(0, 0, 0, .35);
   z-index: 0;
   -webkit-box-sizing: border-box; 
