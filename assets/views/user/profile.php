@@ -1,5 +1,5 @@
 <?php 
-  $path2root = "..";
+  $path2root = "../..";
   require_once("$path2root/assets/inc/session_timeout.inc.php");
   
   if (isset($_GET['username'])) {

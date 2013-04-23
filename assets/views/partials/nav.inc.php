@@ -4,17 +4,20 @@
   <div class="navbar-inner">
     
     <a class="brand" href="/">
-      <img src="<?php echo $path2root; ?>/img/logo_inverted.png" alt="" width="53" />
+      <img src="<?php echo $path2root; ?>/assets/img/logo_inverted.png" alt="" width="53" />
     </a>
     
-    <div class="container-fluid">      
-        
-      <?php if(isset($_SESSION['authenticated'])) {  $username = $_SESSION['username']; ?>
+    <div class="container-fluid">     
       
       <!-- Drawer Toggle -->
       <a id="drawer-toggle" class="btn" href="#"><i class="icon-th-list"></i></a>
       
-      <ul class="nav pull-right">
+      <ul class="nav pull-right"> 
+        
+      <?php 
+      if(isset($_SESSION['authenticated'])) {  
+        $username = $_SESSION['username']; 
+      ?>
         
         <li id="notifications" class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -29,8 +32,8 @@
         <li id="user-dropdown" class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <?php 
-            if (file_exists("$path2root/user/images/$username.jpg")) {
-              echo "<img class='profile-img' src='$path2root/user/images/$username.jpg' width=\"20\" height=\"20\" />&nbsp;&nbsp;$username"; 
+            if (file_exists("$path2root/assets/views/user/images/$username.jpg")) {
+              echo "<img class='profile-img' src='$path2root/assets/views/user/images/$username.jpg' width=\"20\" height=\"20\" />&nbsp;&nbsp;$username"; 
             } else {
               echo "<img class='profile-img' src='http://placekitten.com/150/150' width=\"20\" height=\"20\" />&nbsp;&nbsp;$username"; 
             }
@@ -52,14 +55,14 @@
           </ul>
         </li>
         
-        <?php } else { ?>
-        
-        <li <?php if ($currentPage == 'log_in.php') {
-          echo 'class="active"';} ?>>
+      <?php } else { ?>
+
+        <li>
           <a class="login-trigger" href="#">Log In</a>
         </li>
-        
-        <?php } ?>
+
+      <?php } ?>
+
       </ul>
 
     </div><!-- .container-fluid -->
