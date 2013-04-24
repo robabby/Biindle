@@ -1,6 +1,17 @@
-<script src="/assets/js/bootstrap.js"></script>
-<script src="/assets/js/biindle.js"></script>
-<script src="/assets/js/plugins.js"></script>
+<?php
+// Collect all of the scripts and render them on the page
+if ($handle = opendir("$path2root/assets/js")) {
+
+    /* This is the correct way to loop over the directory. */
+    while (false !== ($entry = readdir($handle))) {
+        if (($entry != "." && $entry != ".." && $entry != "modernizr.custom.48780.js") && strpos($entry, ".js")) {
+            echo "<script src=\"/assets/js/".$entry."\"></script>\n";
+        }
+    }
+
+    closedir($handle);
+}
+?>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

@@ -15,12 +15,19 @@
 <link rel="stylesheet" href="/assets/fonts/Opaficio/stylesheet.css">
 
 <!-- Styles & Frameworks -->
-<link rel="stylesheet" href="/assets/css/reset.css">
-<link rel="stylesheet" href="/assets/css/bootstrap.css">
-<link rel="stylesheet" href="/assets/css/bootstrap-responsive.css">
-<link rel="stylesheet" href="/assets/css/animate.css">
-<link rel="stylesheet" href="/assets/css/jscrollpane.css">
-<link rel="stylesheet" href="/assets/css/style.css">
+<?php
+if ($handle = opendir("$path2root/assets/css")) {
+
+    /* This is the correct way to loop over the directory. */
+    while (false !== ($entry = readdir($handle))) {
+        if (($entry != "." && $entry != "..") && strpos($entry, ".css")) {
+            echo "<link rel=\"stylesheet\" href=\"/assets/css/".$entry."\">\n";
+        }
+    }
+
+    closedir($handle);
+}
+?>
 
 <script src="/assets/js/libs/modernizr-2.5.3.min.js"></script>
 <script src="/assets/js/libs/jquery.min.js"></script>
