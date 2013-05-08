@@ -18,8 +18,9 @@
 <?php
 if ($handle = opendir("$path2root/assets/css")) {
 
-    /* This is the correct way to loop over the directory. */
+    // loop over the directory
     while (false !== ($entry = readdir($handle))) {
+    	// Omit any files that do not have a .css extension
         if (($entry != "." && $entry != "..") && strpos($entry, ".css")) {
             echo "<link rel=\"stylesheet\" href=\"/assets/css/".$entry."\">\n";
         }

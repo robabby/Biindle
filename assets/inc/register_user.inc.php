@@ -46,14 +46,12 @@ if (isset($_REQUEST['register']) && $_REQUEST['register'] == 1) {
     $stmt->bind_param('sissss', $username, $salt, $pwd, $first_name, $last_name, $email);
     $stmt->execute();
     if ($stmt->affected_rows == 1) {
-      echo "We have effected a row\n";
   	  $success = "<p>$username has been registered. You may now <a class=\"success\" href='/log_in.php'>log in</a></p>";
     } elseif ($stmt->errno == 1062) {
   	  $errors[] = "$username is already in use. Please choose another username.";
       echo "Username already in use";
     } else {
   	  $errors[] = 'Sorry, there was a problem with the database.';
-      echo "Sorry, there was a problem with the database.";
     }
   }
 }

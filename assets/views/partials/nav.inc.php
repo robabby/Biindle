@@ -41,12 +41,12 @@
             <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="<?php echo "$path2root"; ?>/user/index.php?username=<?php echo $username; ?>" title="#"><i class="icon-home"></i> Profile</a></li>
+            <li><a href="<?php echo "$path2root"; ?>/assets/views/user/index.php?username=<?php echo $username; ?>" title="#"><i class="icon-home"></i> Profile</a></li>
             <li><a href="#" title="#"><i class="icon-fire"></i> Activity Feed</a></li>
             <li><a href="#" title="#"><i class="icon-th"></i> Apps</a></li>
-            <li><a href="<?php echo "$path2root"; ?>/user/inbox/index.php?username=<?php echo $username; ?>" title="#"><i class="icon-inbox"></i> Inbox</a></li>
+            <li><a href="<?php echo "$path2root"; ?>/assets/views/user/inbox/index.php?username=<?php echo $username; ?>" title="#"><i class="icon-inbox"></i> Inbox</a></li>
             <!--<li><a href="/user/members.php?username=<?php echo $username; ?>"><i class="icon-user"></i> Members</a></li>-->
-            <li><a href="<?php echo "$path2root"; ?>/user/settings.php?username=<?php echo $username; ?>" title="#"><i class="icon-cog"></i> Settings</a></li>
+            <li><a href="<?php echo "$path2root"; ?>/assets/views/user/settings.php?username=<?php echo $username; ?>" title="#"><i class="icon-cog"></i> Settings</a></li>
             <li>
               <form id="logoutForm" method="post" action="<?php logOut() ?>">
                 <button name="logout" id="logout">&nbsp;<i class="icon-road"></i> Log Out</button>

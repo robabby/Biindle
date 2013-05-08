@@ -4,6 +4,7 @@ if ($handle = opendir("$path2root/assets/js")) {
 
     /* This is the correct way to loop over the directory. */
     while (false !== ($entry = readdir($handle))) {
+    	// only collect the necessary files
         if (($entry != "." && $entry != ".." && $entry != "modernizr.custom.48780.js") && strpos($entry, ".js")) {
             echo "<script src=\"/assets/js/".$entry."\"></script>\n";
         }

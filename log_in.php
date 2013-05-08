@@ -7,7 +7,7 @@
   }
   ob_start();
   try {
-  include("$path2root/assets/inc/title.inc.php"); 
+    include("$path2root/assets/inc/title.inc.php"); 
 ?>
 <!doctype html>
 <html>
@@ -22,13 +22,17 @@
       <div class="span6">
         <h3>Log Into your Account:</h3>
         <br />
+        
         <?php
         if ($error) {
           echo "<p>$error</p>";
         } elseif (isset($_GET['expired'])) {
         ?>
+
         <p>Your session has expired. Please log in again.</p>
+        
         <?php } ?>
+        
         <form id="form1" method="post" action="">
           <p>
               <label for="username">Username:</label>

@@ -1,5 +1,5 @@
 <?php 
-  $path2root = "../..";
+  $path2root = "../../..";
   require_once("$path2root/assets/inc/session_timeout.inc.php");
   require_once("$path2root/assets/inc/user_funcs.inc.php");
 
@@ -26,7 +26,7 @@
 <!doctype html>
 <html>
 <head>
-  <?php include("$path2root/assets/inc/head.inc.php"); ?>
+  <?php include("$path2root/assets/views/partials/head.inc.php"); ?>
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCFtiZPliypwop5Kdc5M2ZI6q35qOpqBjg&sensor=true"></script>
   <script type="text/javascript">
     var positionopts;
@@ -152,11 +152,11 @@
 </head>
 <body id="user" onLoad="init()">
 <div id="wrapper">
-  <?php include("$path2root/assets/inc/nav.inc.php"); ?>
+  <?php include("$path2root/assets/views/partials/nav.inc.php"); ?>
   <div class="container-fluid">
     <div class="row-fluid">
       <div class="span3">
-        <?php include("$path2root/assets/inc/user_menu.inc.php"); ?>
+        <?php include("$path2root/assets/views/partials/user_menu.inc.php"); ?>
       </div>
       <div class="span9">
         <div class="well">
